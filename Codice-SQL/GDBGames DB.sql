@@ -46,9 +46,15 @@ codiceCopia int primary key auto_increment,
 codiceAcquisto int,
 titoloVideogioco varchar (64),
 nomeConsole varchar (32),
-foreign key (codiceAcquisto) references acquisto(nFattura),
-foreign key (titoloVideogioco) references videogioco(titolo),
+foreign key (codiceAcquisto) references acquisto(nFattura)
+on update cascade
+on delete restrict,
+foreign key (titoloVideogioco) references videogioco(titolo)
+on update cascade
+on delete restrict,
 foreign key (nomeConsole) references console(nome)
+on update cascade
+on delete restrict
 );
 create table reclamo (
 dataReclamo date,
