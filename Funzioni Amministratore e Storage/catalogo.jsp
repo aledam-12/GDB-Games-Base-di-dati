@@ -3,7 +3,17 @@
 <!DOCTYPE html>
 <html>
 
+<body> 
+<h1> Visualizza i prodotti </h1>
+<table border="1px"> 
+    <tr>
+    <th>Code <a href="product?sort=code">Sort</a></th>
+	<th>Name <a href="product?sort=name">Sort</a></th>
+	<th>Description <a href="product?sort=description">Sort</a></th>
+	<th>Action</th>
+    </tr>
 
+</body>
     <div class="filter-class">
         <div class="filter-container">
             
