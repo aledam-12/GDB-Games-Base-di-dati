@@ -21,7 +21,7 @@
 <% if (products != null && products.size() != 0) {
 Iterator<?> it = products.iterator();
 while (it.hasNext()) {
-ProductBean bean = (ProductBean) it.next();
+BeanVideogioco bean = (BeanVideogioco) it.next();
 %>
 </body>
     <div class="filter-class">
