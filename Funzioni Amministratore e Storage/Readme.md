@@ -1,6 +1,11 @@
+<style>
+.commento {
+  color=green;
+}
+  
+</style>
 <pre> In questa cartella ci sarà l'implementazione dei bean con una pagina jsp per il catalogo e le funzioni amministratore e il control
-
-/**** per il control ****\
+<span class="commento">/**** per il control ****\ </span>
 creare classe che estende httpservlet <br/>
 istanziare oggetto product model con costruttore <br/>
   nel doGet: <br/>
