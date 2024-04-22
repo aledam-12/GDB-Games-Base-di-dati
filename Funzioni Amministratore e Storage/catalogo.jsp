@@ -1,18 +1,29 @@
 <%-- File.jsp --%>
-
+<%
+	ArrayList <BeanVideogioco> products = ArrayList <BeanVideogioco> request.getAttribute("copieVideogiochi");
+	if(products == null) {
+		response.sendRedirect("./product");	
+		return;
+	}
+	(BeanVideogioco) product = (BeanVideogioco) request.getAttribute("product");
+%>
 <!DOCTYPE html>
 <html>
 
 <body> 
 <h1> Visualizza i prodotti </h1>
 <table border="1px"> 
-    <tr>
+<tr>
     <th>Code <a href="product?sort=code">Sort</a></th>
-	<th>Name <a href="product?sort=name">Sort</a></th>
-	<th>Description <a href="product?sort=description">Sort</a></th>
-	<th>Action</th>
-    </tr>
-
+    <th>Titolo <a href="product?sort=name">Sort</a></th>
+    <th>Console <a href="product?sort=description">Sort</a></th>
+    <th>Azione</th>
+</tr>
+<% if (products != null && products.size() != 0) {
+Iterator<?> it = products.iterator();
+while (it.hasNext()) {
+ProductBean bean = (ProductBean) it.next();
+%>
 </body>
     <div class="filter-class">
         <div class="filter-container">
