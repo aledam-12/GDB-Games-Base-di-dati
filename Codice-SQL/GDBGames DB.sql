@@ -8,7 +8,10 @@ cognome varchar (32),
 pw char (128) /*si deve memorizzare l'hashing */
 );
 create table acquisto (
-emailCliente //da mod
+emailCliente varchar (64),
+foreign key acquisto(emailCliente) references  cliente(email)
+on update cascade
+on delete cascade,
 nCarta numeric(10),
 nFattura int primary key auto_increment,
 dataAcquisto date,
