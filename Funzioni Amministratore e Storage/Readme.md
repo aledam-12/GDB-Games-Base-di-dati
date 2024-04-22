@@ -1,4 +1,4 @@
-In questa cartella ci sarà l'implementazione dei bean con una pagina jsp per il catalogo e le funzioni amministratore e il control
+<pre> In questa cartella ci sarà l'implementazione dei bean con una pagina jsp per il catalogo e le funzioni amministratore e il control
 
 /**** per il control **** \
 creare classe che estende httpservlet <br/>
@@ -11,3 +11,4 @@ istanziare oggetto product model con costruttore <br/>
       se action = insert, prendere in input i vari campi dalla richiesta e chiamare il doSave, instanziando prima il bean corretto <br/>
     inoltrare la richiesta a vediCatalogo.jsp <br/>
     in caso di errore (nel catch) ridirezionare alla schermata di errore <br/>
+</pre>
