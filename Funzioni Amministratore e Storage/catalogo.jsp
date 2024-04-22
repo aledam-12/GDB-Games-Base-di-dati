@@ -23,6 +23,12 @@ Iterator<?> it = products.iterator();
 while (it.hasNext()) {
 BeanVideogioco bean = (BeanVideogioco) it.next();
 %>
+<td><%=bean.getCode()%></td>
+<td><%=bean.getName()%></td>
+<td><%=bean.getDescription()%></td>
+<td><a href="product?action=delete&id=<%=bean.getCode()%>">Cancella</a><br>
+<a href="product?action=read&id=<%=bean.getCode()%>">Dettagli</a></td>
+
 </body>
     <div class="filter-class">
         <div class="filter-container">
