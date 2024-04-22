@@ -5,11 +5,10 @@
 		response.sendRedirect("./product");	
 		return;
 	}
-	(BeanVideogioco) product = (BeanVideogioco) request.getAttribute("product");
+	(BeanVideogioco) product = (BeanVideogioco) request.getAttribute("copieVideogiochi");
 %>
 <!DOCTYPE html>
 <html>
-
 <body> 
 <h1> Visualizza i prodotti </h1>
 <table border="1px"> 
