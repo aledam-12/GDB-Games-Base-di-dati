@@ -1,4 +1,7 @@
-	<h2>Details</h2>
+<%@include file="header.html" %>
+<!DOCTYPE html>
+<html>
+<h2>Details</h2>
 	<%
 		if (product != null) {
 	%>
@@ -18,3 +21,5 @@
 			<td><%=product.getQuantity()%></td>
 		</tr>
 	</table>
+<%@include file="footer.html" %>
+</html>
