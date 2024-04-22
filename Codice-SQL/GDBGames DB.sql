@@ -8,6 +8,7 @@ cognome varchar (32),
 pw char (128) /*si deve memorizzare l'hashing */
 );
 create table acquisto (
+nCarta numeric(10),
 nFattura int primary key auto_increment,
 dataAcquisto date,
 via varchar(32),
@@ -40,6 +41,7 @@ on update cascade
 on delete restrict
 );
 create table copia (
+percIva numeric (5,2)
 stato boolean,
 prezzo numeric(5,2),
 codiceCopia int primary key auto_increment,
