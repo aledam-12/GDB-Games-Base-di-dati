@@ -27,6 +27,7 @@ create table console (
 nome varchar (32) primary key
 );
 create table videogioco (
+immagineGioco blob,
 console char(16),
 titolo varchar (64) primary key,
 descrizione varchar (512),
