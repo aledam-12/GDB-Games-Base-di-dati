@@ -1,4 +1,4 @@
-package model;
+package modello;
 import beans.copiaBean;
 import java.sql.SQLException;
 import java.util.Collection;
