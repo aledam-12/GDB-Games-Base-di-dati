@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <h2>Details</h2>
-	<%
+	<%	copiaBean product = response.getParameter("prodotto"); 
 		if (product != null) {
 	%>
 	<table border="1">
@@ -14,11 +14,10 @@
 			<th>Quantity</th>
 		</tr>
 		<tr>
-			<td><%=product.getCode()%></td>
-			<td><%=product.getName()%></td>
-			<td><%=product.getDescription()%></td>
-			<td><%=product.getPrice()%></td>
-			<td><%=product.getQuantity()%></td>
+			<td><%=product.getPegi()%></td>
+			<td><%=product.getTitolo()%></td>
+			<td><%=product.getDescrizione()%></td>
+			<td><%=product.getPrezzo()%></td>
 		</tr>
 	</table>
 <%@include file="footer.html" %>
