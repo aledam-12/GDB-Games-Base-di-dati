@@ -117,32 +117,33 @@ public class ProdottiDAO implements Prodotti
 
     
      
-    public synchronized copiaBean trovaprod(String videogioco) throws SQLException
-        {
-            Connection c = null;
-            PreparedStatement ps = null;
-            copiaBean copia = new copiaBean();
-            String query = "SELECT * FROM copia WHERE stato = 0 && titolovideogioco = ?";
-                    c = connessionePool.getConnection();
-                    ps = c.prepareStatement(query);
-                    ps.setString(1, videogioco);
-                    ResultSet risultato = ps.executeQuery();
-                    while(risultato.next())
-                        {
-                            copia.setStato(risultato.getBoolean("stato"));
-                            copia.setPercIva(risultato.getFloat("perciva"));
-                            copia.setPrezzo(risultato.getFloat("prezzo"));
-                            copia.setCodiceCopia(risultato.getInt("codiceCopia"));
-                            copia.setCodiceAcquisto(risultato.getInt("codiceAcquisto"));
-                            copia.setTitoloVideogioco(risultato.getString("titoloVideogioco"));
-                            copia.setNomeConsole(risultato.getString("nomeConsole"));
-                        }
-
-                        ps.close();
-                        connessionePool.rilasciaConnessione(c);
-            return copia;       
-        }
-
+	public synchronized copiaBean leggiCopia(int codice) throws SQLException {
+		copiaBean copia = new copiaBean();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		String SQL = "SELECT * FROM copia WHERE codiceCopia = ?";
+		try { conn = connessionePool.getConnection();
+		ps = conn.prepareStatement(SQL);
+		ps.setInt(1, codice);
+		ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				copia.setCodiceCopia(codice);
+				copia.setNomeConsole(rs.getString("nomeConsole"));
+				copia.setPercIva(rs.getFloat("percIva"));
+				copia.setPrezzo(rs.getFloat("prezzo"));
+				copia.setTitoloVideogioco(rs.getString("titoloVideogioco"));
+			}
+		}
+		finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				connessionePool.rilasciaConnessione(conn);
+			}
+		} 
+		return copia;
+	}
 
 
      
