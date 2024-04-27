@@ -5,7 +5,34 @@ import java.sql.*;
 
 public class ProdottiDAO implements Prodotti
 {	
-     
+	public synchronized int getQuantità (copiaBean copia) throws SQLException{
+		String sql = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco FROM copia WHERE stato = 0 "
+				+ "AND titoloVideogioco = ?"
+				+ "AND nomeConsole = ?"
+				+ "GROUP BY nomeConsole,titoloVideogioco";
+		Connection conn = null;
+		PreparedStatement ps = null;
+		int quantità = 0;
+		try {
+			conn = connessionePool.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, copia.getNomeConsole());
+			ps.setString(2, copia.getTitoloVideogioco());
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				quantità = rs.getInt("quantità");
+			}
+		}
+		finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				connessionePool.rilasciaConnessione(conn);
+			}
+		}
+		return quantità;
+	}
     public synchronized void inserisciProd(videogiocoBean v) throws SQLException
         {
             Connection c = null;
