@@ -146,45 +146,37 @@ public class ProdottiDAO implements Prodotti
 
 
      
-    public synchronized Collection<copiaBean> seltutti(String ordine) throws SQLException 
-        {
-		    Connection c = null;
-		    PreparedStatement preparedStatement = null;
-		    ArrayList<copiaBean> copia = new ArrayList<>();
-		    String query = "SELECT * FROM copia WHERE stato = 0";
-		    if (ordine != null && !ordine.equals("")) 
-                {
-			        query += " ORDER BY " + ordine;
-		        }
-		    try {
-			    c = connessionePool.getConnection();
-			    PreparedStatement ps = c.prepareStatement(query);
-			    ResultSet risultato = ps.executeQuery();
-			    while (risultato.next()) 
-                    {
-				        copiaBean co = new copiaBean();
-                        co.setStato(risultato.getBoolean("stato"));
-                        co.setPercIva(risultato.getFloat("perciva"));
-                        co.setPrezzo(risultato.getFloat("prezzo"));
-                        co.setCodiceCopia(risultato.getInt("codiceCopia"));
-                        co.setCodiceAcquisto(risultato.getInt("codiceAcquisto"));
-                        co.setTitoloVideogioco(risultato.getString("titoloVideogioco"));
-                        co.setNomeConsole(risultato.getString("nomeConsole"));
-				        copia.add(co);
-			        }
-                } finally {
-			                try {
-				                if (preparedStatement != null)
-                                    {
-					                    preparedStatement.close();
-                                    }
-			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
-			                              }
-		                  }
-		return copia;
-	    }
-
+public synchronized ArrayList<copiaBean> leggiTutteCopie (String sort) throws SQLException{
+		String sql = "SELECT * FROM copia WHERE stato = 0";
+		ArrayList <copiaBean> copie = new ArrayList <>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		if (sort != null && !sort.equals("")) {
+			sql += " ORDER BY " + sort;
+		}	
+		try { conn = connessionePool.getConnection(); 
+		ps = conn.prepareStatement(sql); 
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			copiaBean copia = new copiaBean();
+			copia.setCodiceCopia(rs.getInt("codiceCopia"));
+			copia.setTitoloVideogioco(rs.getString("titoloVideogioco"));
+			copia.setPercIva(rs.getFloat("percIva"));
+			copia.setPrezzo(rs.getFloat("prezzo"));
+			copia.setNomeConsole(rs.getNString("nomeConsole"));
+			copie.add(copia);
+		}
+		}
+		finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				connessionePool.rilasciaConnessione(conn);
+			}
+		}
+		return copie;
+}
 
 
      
