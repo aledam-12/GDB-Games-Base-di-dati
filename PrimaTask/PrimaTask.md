@@ -1,0 +1,1 @@
+Creazione del Database SQL, implementazione del DAO per il bean delle copie, implementazione delle Servlet per il connection pool e per la gestione del catalogo, implementazione delle JSP per il controllo del catalogo e la visualizzazione dei dettagli del singolo prodotto
