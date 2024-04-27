@@ -1,0 +1,30 @@
+import beans.videogiocoBean;
+import java.sql.*;
+
+public class videogiocoDAO {
+public synchronized videogiocoBean leggiVideogioco(String titolo) throws SQLException {
+		videogiocoBean videogioco = new videogiocoBean();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		String SQL = "SELECT * FROM videogioco WHERE titolo = ?";
+		try { conn = connessionePool.getConnection();
+		ps = conn.prepareStatement(SQL);
+		ps.setString(1, titolo);
+		ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				videogioco.setDescrizione(rs.getString("descrizione"));
+				videogioco.setPegi(rs.getInt("pegi"));
+				videogioco.setTitolo(titolo);
+			}
+		}
+		finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				connessionePool.rilasciaConnessione(conn);
+			}
+		} 
+		return videogioco;
+        }
+}
