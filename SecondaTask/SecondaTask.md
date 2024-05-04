@@ -1,5 +1,5 @@
 <h1> Seconda Task</h1>
-In questa task ci si occupa delle seguenti funzioni: 
+In questa task ci si occupa delle seguenti funzioni: <br>
 <ol>
     <li>gestione delle immagini tramite opportune Servlet e Metodi DAO, in modo da caricarle dal database;</li>
     <li>gestione della sessione del carrello con implementazione di metodi per l'inserimeto e la rimozione di prodotti dal carrello</li>
