@@ -1,0 +1,116 @@
+body{
+    background: radial-gradient(circle, #4B0082, black 70%);
+    color: white;
+    flex-direction: column;
+    min-height: 100vh;
+    height:100%;
+    overflow-y: auto;
+}
+input[type="text"] , 
+input[type="password"] ,
+input[type="number"] ,
+input[type="email"] {
+    width: 60%;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;  
+}
+
+input[type="number"] {
+    width: 10%;
+}
+
+.button, button {
+    background-color: #800080; 
+    color: white; 
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .button:hover, button:hover {
+    background-color: #a64ca6;
+  }
+  
+  /* smartphone */
+  @media screen and (max-width: 600px) {
+    .f {
+    	display: flex;
+    	align-items: center;
+    	padding:5px;
+    	text-align: center;
+    }
+    .f img {
+    	margin-bottom: 35px;
+    }
+    .form-container {
+      width: 100%;
+      padding: 0;
+    }
+      
+    .button, button {
+      width: 100%;
+      padding: 12px 0;
+    }
+  }
+
+  /* pc */
+  @media screen and (min-width: 1025px) {
+    .h input[type = "text"] {
+    	height: 25px;
+    	margin-left: -4px;
+    	border-radius: none;
+    }
+    .f {
+    	width: 100%;
+    	position: absolute;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 5% auto 5% auto;
+      padding: 20px;
+    }
+
+    .button, button {
+      font-size: 15px; 
+      padding: 10xp 20px;
+    }
+    #loginForm {
+  	margin: 20% 20% 15% 20%;
+  }  
+  .reg{
+  	margin: 1% 20% 5% 20%;
+  }
+  }
+  
+  /* tablet */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .h input[type = "text"] {
+    	height: 25px;
+    	margin-left: -4px;
+    	border-radius: none;
+    }
+   
+    /*.form-container {
+      width: 80%;
+      height: auto;
+      padding: 15px;
+      flex: 1;
+    }*/
+  #loginForm {
+  	margin: 20% 20% 15% 20%;
+  }  
+  .reg{
+  	margin: 1% 20% 5% 20%;
+  }
+    .button, button {
+      font-size: 17px;
+      padding: 10px 20px;
+    }
+  }
