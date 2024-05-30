@@ -60,11 +60,11 @@ if(copie == null) {
 
     <div class="novita">
         <div class="carousel">
-            <img src="ACS.jpg" alt="Collector edition assassin creed shadow">
-            <img src="GTA 6.jpg" alt="GTA 6">
-            <img src="NSwitch.jpg" alt="Novità Switch">
-            <img src="PrinceOfPersiaTheLostCrown.jpg" alt="Prince Of Persia The Lost Crown">
-        	<img src="Sea of Thieves.png" alt="Sea of Thieves">
+            <img src="foto\ACS.jpg" alt="Collector edition assassin creed shadow">
+            <img src="foto\GTA 6.jpg" alt="GTA 6">
+            <img src="foto\NSwitch.jpg" alt="Novità Switch">
+            <img src="foto\PrinceOfPersiaTheLostCrown.jpg" alt="Prince Of Persia The Lost Crown">
+        	<img src="foto\Sea of Thieves.png" alt="Sea of Thieves">
         </div>
     </div> 
 
