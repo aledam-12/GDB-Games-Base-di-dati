@@ -1,0 +1,69 @@
+.fine {
+    		position: absolute;
+    		width: 100%;
+    		margin-top: -7%;
+    	}
+        body {
+            background-color: black;
+            color: white;
+            overflow-y: auto;
+        }
+        .novita {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .carousel img {
+            width: 50%;
+            height: 300px;;
+            display: block;
+            margin: 0 auto; 
+        }
+        .griglia {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .prodotto {
+         	padding-top: 5%; 
+    		padding-bottom: 5%;
+        	border: 3px solid white;
+            width: 30%;
+            margin-bottom: 10%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .prodotto img {
+            width: 55%; 
+            height: auto;
+            display: block;
+            margin: 0 auto; 
+            transform: translateY(-10px); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            
+        }
+        .prodotto img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.5); 
+        }
+        .prodotto h2 {
+            margin-top: 0;
+            margin-bottom: -20px;
+        }
+        .prodotto p {
+            margin-top: 0;
+            margin-bottom: -15px;
+        }
+        
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+    		 .prodotto {
+                width: 45%; 
+            }
+            .fine {
+            	margin-top: 25%;
+            }
+    	}
