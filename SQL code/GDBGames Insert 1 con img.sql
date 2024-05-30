@@ -45,7 +45,7 @@ VALUES
 (null, 'Call of Duty: Modern Warfare', 'Un intenso sparatutto in prima persona che ti immerge in una trama realistica e coinvolgente. Combatti in scenari dettagliati e realistici, affrontando minacce globali e terrorismo.', 18),
 (null, 'Far Cry 3', 'Un''avventura open-world ambientata su un''isola tropicale paradisiaca ma pericolosa. Esplora l''isola, sopravvivi ai suoi pericoli e affronta nemici spietati per salvare i tuoi amici.', 18),
 (null, 'Far Cry 6', 'Un''avventura open-world ambientata in Yara, un''immaginaria isola caraibica. Lotta contro il dittatore Anton Castillo e i suoi sostenitori per liberare l''isola e il suo popolo.', 18),
-(null, 'FIFA 24', 'La simulazione di calcio definitiva con squadre e giocatori reali. Vivi l''emozione del calcio, gestisci la tua squadra e competi in tornei internazionali.', 3 ),
+(null, 'FIFA 23', 'La simulazione di calcio definitiva con squadre e giocatori reali. Vivi l''emozione del calcio, gestisci la tua squadra e competi in tornei internazionali.', 3 ),
 (null, 'GTA 5', 'Un''avventura open-world piena di azione, crimini e veicoli. Esplora la vasta città di Los Santos, commetti crimini audaci e costruisci il tuo impero criminale.', 18),
 (null, 'Horizon Forbidden West', 'Un''avventura post-apocalittica in un mondo dominato da creature robotiche. Esplora le rovine dell''America, scopri segreti antichi e lotta per la sopravvivenza.', 18),
 (null, 'Rainbow Six Siege', 'Un intenso sparatutto tattico in squadra. Scegli tra una varietà di operatori speciali, costruisci difese, pianifica strategie e lavora in squadra per la vittoria.', 18),
@@ -62,7 +62,7 @@ VALUES
     ('Call of Duty: Modern Warfare', 'Sparatutto in Prima Persona'),
     ('Far Cry 3', 'Azione Open-World'),
     ('Far Cry 6', 'Azione Open-World'),
-    ('FIFA 24', 'Simulazione di Calcio'),
+    ('FIFA 23', 'Simulazione di Calcio'),
     ('GTA 5', 'Azione Open-World'),
     ('Horizon Forbidden West', 'Avventura Post-Apocalittica'),
     ('Rainbow Six Siege', 'Sparatutto Tattico'),
@@ -76,7 +76,7 @@ INSERT INTO copia (stato, percIva, prezzo, codiceAcquisto, titoloVideogioco, nom
 VALUES 
 (true, 22.0, 49.99, 1, 'GTA 5', 'Ps4'),
 (true, 22.0, 59.99, 1, 'Assassin''s Creed 3', 'Ps4'),
-(true, 22.0, 39.99, 1, 'FIFA 24', 'Ps4'),
+(true, 22.0, 39.99, 1, 'FIFA 23', 'Ps4'),
 (true, 22.0, 49.99, 2, 'Far Cry 6', 'Xbox'),
 (true, 22.0, 59.99, 2, 'Call of Duty: Modern Warfare', 'Xbox'),
 (true, 22.0, 39.99, 2, 'Rainbow Six Siege', 'Xbox'),
@@ -90,7 +90,7 @@ VALUES
 (false, 22.0, 59.99, NULL, 'The Witcher 3: Wild Hunt', 'Xbox'),
 (false, 22.0, 39.99, NULL, 'The Legend of Zelda: Breath of the Wild', 'Switch'),
 (false, 22.0, 49.99, NULL, 'Super Mario Odyssey', 'Switch'),
-(false, 22.0, 59.99, NULL, 'FIFA 24', 'Switch'),
+(false, 22.0, 59.99, NULL, 'FIFA 23', 'Switch'),
 (false, 22.0, 49.99, NULL, 'GTA 5', 'Xbox'),
 (false, 22.0, 49.99, NULL, 'GTA 5', 'PC'),
 (false, 22.0, 59.99, NULL, 'Assassin''s Creed Valhalla', 'Xbox'),
@@ -105,8 +105,8 @@ VALUES
 (false, 22.0, 39.99, NULL, 'The Legend of Zelda: Breath of the Wild', 'PC'),
 (false, 22.0, 49.99, NULL, 'Super Mario Odyssey', 'Ps4'),
 (false, 22.0, 49.99, NULL, 'Super Mario Odyssey', 'PC'),
-(false, 22.0, 59.99, NULL, 'FIFA 24', 'Ps4'),
-(false, 22.0, 59.99, NULL, 'FIFA 24', 'PC');
+(false, 22.0, 59.99, NULL, 'FIFA 23', 'Ps4'),
+(false, 22.0, 59.99, NULL, 'FIFA 23', 'PC');
   
 -- Inserimento dei reclami
 INSERT INTO reclamo (dataReclamo, nReclamo, titolo, contenuto, emailCliente) 
@@ -116,9 +116,3 @@ VALUES
 ('2022-12-18', 3, 'Codice di attivazione non funzionante', 'Il codice di attivazione fornito non funziona.', 'peppeneri@email.com'),
 ('2024-05-20', 4, 'Consegna in ritardo', 'Il gioco acquistato non è ancora stato consegnato nonostante la data di rilascio sia già passata.', 'mariorossi@email.com'),
 ('2024-05-25', 5, 'Grafica difettosa', 'La grafica del gioco presenta difetti e glitch che rendono l’esperienza di gioco impossibile.', 'luigiverdi@email.com');
-
-
-INSERT INTO videogioco (titolo, img)
-VALUES 
-('Assassin''s Creed 3', LOAD_FILE('Progetto TSW 2/foto/assassin-creed-III.jpg')),
-('Assassin''s Creed vhalalla', LOAD_FILE('Progetto TSW 2/foto/assassin-creed-vhalalla.jpg'));
