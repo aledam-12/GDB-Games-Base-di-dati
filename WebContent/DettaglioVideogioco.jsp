@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>GDB Games</title>
-<link rel="stylesheet" href="Dettaglio_Videogioco.css">
+<link rel="stylesheet" href="css/Dettaglio_Videogioco.css">
 </head>
 <body>
 	<div class = "head">
