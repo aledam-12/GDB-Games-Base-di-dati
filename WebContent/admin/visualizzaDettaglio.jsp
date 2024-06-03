@@ -26,6 +26,8 @@
 			<div class="numero">N.Fattura: <%=ordine.getnFattura() %></div><div class="data">Data: <%=ordine.getdataAcquito()%></div>
 				</div>
 			<div class = "intestazione">
+			<b>TOTALE: </b><%=ordine.getPrezzoTotale()%>&euro;
+			<b>QUANTITÀ: </b> <%= dettagli.stream().mapToInt(OrdineCopia::getQuantità).sum()%>
 				<div class="emettitore">
 				<h3>GDB-GAMES</h3> 
 				<p>
@@ -44,9 +46,7 @@
 				</div>
 			</div>
 			<div class = "corpo">
-			<b>TOTALE: </b><%=ordine.getPrezzoTotale()%>&euro;
-			<b>QUANTITÀ: </b> <%= dettagli.stream().mapToInt(OrdineCopia::getQuantità).sum()%>
-			<table class="dettagli prodotti">
+			<table class="dettagli-prodotti">
 				<tr class="titoli-tabella">
 					<th>Titolo </th>
 					<th>Quantità </th>
@@ -60,7 +60,7 @@
 					<td><%=o.getQuantità() %></td>
 					<td><%=o.getPrezzoTotale()%>&euro;</td>
 					<td><%=o.getPercIva() %>% </td>
-					<td><img src="../getFoto?titolo=<%=o.getTitoloVideogioco()%>" alt="immagine del videogioco non trovata" width="500px"> </td>
+					<td id="riga-img"><img src="../getFoto?titolo=<%=o.getTitoloVideogioco()%>" alt="immagine del videogioco non trovata" width="100px" height="100px" class="immagine"> </td>
 					<%} %>
 			</table>
 			</div>

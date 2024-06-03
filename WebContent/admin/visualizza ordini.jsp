@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/visualizza_ordini.css">
 		<meta charset="ISO-8859-1">
 	</head>
 	<%

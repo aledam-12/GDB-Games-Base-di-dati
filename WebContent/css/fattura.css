@@ -1,6 +1,6 @@
-.fattura {
-		
-	
+:root {
+	--tabellaSfondo: rgb(242,239,245);
+	--coloreEvidenza: #81007f;
 }
 .titolo {
 	 display: flex;
@@ -29,4 +29,25 @@
 }
 .destinatario {
 	border: 1px solid purple;
+}
+.corpo {
+	overflow-x: auto;
+	margin: 10% 5% 10% 5%;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+.dettagli-prodotti {
+	background-color: var(--tabellaSfondo);
+	width: 50%;
+	border: 1px solid var(--coloreEvidenza);
+}
+.corpo-tabella{
+	 text-align: center;
+     margin: 0 auto;
+     vertical-align: center;
+     border-bottom: 1px solid var(--coloreEvidenza);
+}
+.corpo-tabella #riga-img {
+	padding: 0px 0px 0px 0px;
 }
