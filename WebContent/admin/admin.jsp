@@ -26,10 +26,6 @@
 			</div>
 		<h3>Visualizza ordini</h3>
 		<%@ include file = "visualizza ordini.jsp"%>
-		
-		
-		<%@ include file="../footer.jsp" %>
-		
-		
+		<%@ include file="../footer.jsp"%>
 	</body>	
 </html>

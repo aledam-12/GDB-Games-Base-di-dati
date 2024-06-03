@@ -5,6 +5,28 @@ import java.sql.*;
 
 public class ProdottiDAO implements Prodotti
 {	
+	public synchronized void cambiaIVA (float IVA) throws SQLException{
+		String SQL = "UPDATE gdbgames.copia SET percIva = ? WHERE stato = 0"; //modifica solo le copie invendute
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = connessionePool.getConnection();
+			ps = conn.prepareStatement(SQL);
+			ps.setFloat(1, IVA);
+			System.out.println(ps);
+			ps.executeUpdate();
+			conn.commit();
+		}
+		finally {
+			try {
+				if (ps != null)
+					ps.close();
+			} finally {
+				connessionePool.rilasciaConnessione(conn);
+			}
+		}
+	}
+	
 	public synchronized ArrayList <OrdineCopia> leggiDaNFattura(acquistoBean acquisto) throws SQLException {
 		String SQL = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco, percIva,codiceAcquisto, prezzo FROM copia WHERE codiceAcquisto = ? "
 		    	+ "GROUP BY nomeConsole, titoloVideogioco, prezzo, percIva";

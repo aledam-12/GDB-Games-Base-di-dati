@@ -23,7 +23,7 @@ public class AdminInput extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String type = request.getParameter("type");
-	if (type.contentEquals("copia")) {
+	if (type.equals("copia")) {
 		System.out.println(request.getParameter("prezzo"));
 		copiaBean copia = new copiaBean();
 		copia.setPercIva(Float.parseFloat(request.getParameter("iva")));
@@ -33,14 +33,12 @@ public class AdminInput extends HttpServlet {
 		copia.setStato(false);
 		ProdottiDAO pdao = new ProdottiDAO();
 		int quantità = Integer.parseInt(request.getParameter("quantita"));
-		System.out.println(copia);
-		System.out.println(quantità);
 		for (int i = 0; i < quantità; i++) {
 			try {pdao.inscopia(copia);}
 			catch (SQLException e) {e.printStackTrace();}
 				}
 		}
-	if (type.equals("videogioco")) {
+	else if (type.equals("videogioco")) {
 		videogiocoBean videogioco = new videogiocoBean();
 		videogioco.setDescrizione(request.getParameter("descrizione"));
 		videogioco.setPegi(Integer.parseInt(request.getParameter("pegi")));
@@ -48,6 +46,13 @@ public class AdminInput extends HttpServlet {
 		VideogiocoDAO vdao = new VideogiocoDAO();
 		try {vdao.inserisciVideogioco(videogioco);}
 		catch(Exception e) {e.getMessage();}
+		}
+	else if(type.equals("changeIVA")) {
+		ProdottiDAO pdao = new ProdottiDAO();
+		float iva = Float.parseFloat(request.getParameter("percIva"));
+		System.out.println(iva);
+		try{pdao.cambiaIVA(iva);}
+		catch (SQLException e) {e.printStackTrace();}
 		}
 		RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/admin/admin.jsp");
 		rd.forward(request, response);
