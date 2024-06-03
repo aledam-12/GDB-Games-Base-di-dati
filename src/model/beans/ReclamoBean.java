@@ -2,7 +2,7 @@ package model.beans;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class reclamoBean implements Serializable
+public class ReclamoBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -12,7 +12,7 @@ public class reclamoBean implements Serializable
     String contenuto;
     String emailCliente;
 
-    public reclamoBean()
+    public ReclamoBean()
         {
             dataReclamo = LocalDate.of(1999,1,1);
             nReclamo = 0;

@@ -10,7 +10,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import model.ClienteDAO;
-import model.beans.clienteBean;
+import model.beans.ClienteBean;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,7 @@ public class Login extends HttpServlet {
             boolean feedback;
             boolean cambioForm;
 
-            clienteBean cliente = ClienteDAO.leggiCliente(username);
+            ClienteBean cliente = ClienteDAO.leggiCliente(username);
         	if (ClienteDAO.isRegistrato(cliente)) { //mail check
                 if(checkUser(cliente, toHash(password), session)){ //pass check
                     if (cliente.getStato().equals("admin")) redirectedPage = "/admin/admin.jsp";
@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
         }
     }
 
-    private boolean checkUser(clienteBean cliente, String password, HttpSession session) throws SQLException {
+    private boolean checkUser(ClienteBean cliente, String password, HttpSession session) throws SQLException {
         if (cliente == null || !(cliente.getPw().equals(password)))
             return false;
         else {

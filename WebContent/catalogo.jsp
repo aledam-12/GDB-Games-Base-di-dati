@@ -1,11 +1,12 @@
 <%@include file="header.jsp" %>
-<%@ page import="java.util.ArrayList, model.beans.copiaBean" %>
+<%@ page import="java.util.ArrayList,model.beans.CopiaBean" %>
 <%
-ArrayList <copiaBean> copie = (ArrayList<copiaBean>)request.getAttribute("copieVideogiochi");    
+	ArrayList <CopiaBean> copie = (ArrayList<CopiaBean>)request.getAttribute("copieVideogiochi");    
 if(copie == null) {
     response.sendRedirect("./controlloCatalogo");    
     return;
-} %>
+}
+%>
 <!DOCTYPE html>
 <html>
 
@@ -38,11 +39,14 @@ if(copie == null) {
 
 <body>
 
-    <%  // Here negative login feedback 
-    Boolean feedbackLog = (Boolean) session.getAttribute("feedbackLog");    
+    <%
+    	// Here negative login feedback 
+        Boolean feedbackLog = (Boolean) session.getAttribute("feedbackLog");
     %>
-    <%   // For mail  
-    if(feedbackLog != null && feedbackLog){ %>
+    <%
+    	// For mail  
+        if(feedbackLog != null && feedbackLog){
+    %>
     <script>
         changeForm("signUp");
 
@@ -56,7 +60,9 @@ if(copie == null) {
         });
     </script>
     <div id="message">Login correttamente effettuato.</div>
-    <% } %>
+    <%
+    	}
+    %>
 
     <div class="novita">
         <div class="carousel">
@@ -70,9 +76,11 @@ if(copie == null) {
 
     <h2>Selezione di prodotti per pc:</h2>
     <div class="griglia">
-        <% if(copie != null && copie.size() != 0) {
-        for (copiaBean copia : copie) { 
-          if ("PC".equals(copia.getNomeConsole())) {%>
+        <%
+        	if(copie != null && copie.size() != 0) {
+                for (CopiaBean copia : copie) { 
+                  if ("PC".equals(copia.getNomeConsole())) {
+        %>
         <div class="prodotto">
             <a href="controlloCatalogo?action=read&id=<%=copia.getCodiceCopia()%>&titolo=<%=copia.getTitoloVideogioco()%>" target="_blank">
                 <img src="./getFoto?titolo=<%=copia.getTitoloVideogioco()%>" alt="Immagine del videogioco non trovata">

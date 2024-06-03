@@ -27,7 +27,7 @@ public class ProdottiDAO implements Prodotti
 		}
 	}
 	
-	public synchronized ArrayList <OrdineCopia> leggiDaNFattura(acquistoBean acquisto) throws SQLException {
+	public synchronized ArrayList <OrdineCopia> leggiDaNFattura(AcquistoBean acquisto) throws SQLException {
 		String SQL = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco, percIva,codiceAcquisto, prezzo FROM copia WHERE codiceAcquisto = ? "
 		    	+ "GROUP BY nomeConsole, titoloVideogioco, prezzo, percIva";
 		Connection conn = null;
@@ -39,7 +39,7 @@ public class ProdottiDAO implements Prodotti
 		ps.setInt(1, acquisto.getnFattura());
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
-			copiaBean temp = new copiaBean();
+			CopiaBean temp = new CopiaBean();
 			temp.setNomeConsole(rs.getString("nomeConsole"));
 			temp.setTitoloVideogioco(rs.getString("titoloVideogioco"));
 			temp.setPercIva(rs.getFloat("percIva"));
@@ -59,7 +59,7 @@ public class ProdottiDAO implements Prodotti
 		}
 		return ProdottiAcquistati;
 	}
-	public synchronized void UpdateCopia (copiaBean copia, acquistoBean acquisto) throws SQLException {
+	public synchronized void UpdateCopia (CopiaBean copia, AcquistoBean acquisto) throws SQLException {
 		String sql = "UPDATE copia SET stato = 1, codiceAcquisto = ? WHERE titoloVideogioco = ? AND prezzo = ? AND nomeConsole = ?";
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -82,7 +82,7 @@ public class ProdottiDAO implements Prodotti
 			}
 		}
 	} 
-	public synchronized int getQuantità (copiaBean copia) throws SQLException
+	public synchronized int getQuantità (CopiaBean copia) throws SQLException
         {
 		    String sql = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco, prezzo FROM copia WHERE stato = 0 "
 				    + "AND titoloVideogioco = ?"
@@ -119,7 +119,7 @@ public class ProdottiDAO implements Prodotti
 
 
     
-    public synchronized void inserisciProd(videogiocoBean v) throws SQLException
+    public synchronized void inserisciProd(VideogiocoBean v) throws SQLException
         {
             Connection c = null;
             PreparedStatement PrepareStatement = null;
@@ -147,7 +147,7 @@ public class ProdottiDAO implements Prodotti
 
 
      
-    public synchronized void inscopia(copiaBean copia) throws SQLException
+    public synchronized void inscopia(CopiaBean copia) throws SQLException
         {
             Connection c = null;
             PreparedStatement ps = null;
@@ -212,9 +212,9 @@ public class ProdottiDAO implements Prodotti
     
 
      
-	public synchronized copiaBean leggiCopia(int codice) throws SQLException 
+	public synchronized CopiaBean leggiCopia(int codice) throws SQLException 
         {
-		    copiaBean copia = new copiaBean();
+		    CopiaBean copia = new CopiaBean();
 		    Connection conn = null;
 		    PreparedStatement ps = null;
 		    String SQL = "SELECT * FROM copia WHERE codiceCopia = ?";
@@ -247,10 +247,10 @@ public class ProdottiDAO implements Prodotti
 
 
      
-    public synchronized ArrayList<copiaBean> leggiTutteCopie (String sort) throws SQLException
+    public synchronized ArrayList<CopiaBean> leggiTutteCopie (String sort) throws SQLException
         {
 		    String sql = "SELECT * FROM copia WHERE stato = 0";
-		    ArrayList <copiaBean> copie = new ArrayList <>();
+		    ArrayList <CopiaBean> copie = new ArrayList <>();
 		    Connection conn = null;
 		    PreparedStatement ps = null;
 		    if (sort != null && !sort.equals("")) 
@@ -263,7 +263,7 @@ public class ProdottiDAO implements Prodotti
 	            	ResultSet rs = ps.executeQuery();
 		            while (rs.next()) 
                         {
-			                copiaBean copia = new copiaBean();
+			                CopiaBean copia = new CopiaBean();
 			                copia.setCodiceCopia(rs.getInt("codiceCopia"));
 			                copia.setTitoloVideogioco(rs.getString("titoloVideogioco"));
 			                copia.setPercIva(rs.getFloat("percIva"));

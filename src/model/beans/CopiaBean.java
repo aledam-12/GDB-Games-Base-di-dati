@@ -1,7 +1,7 @@
 package model.beans;
 import java.io.Serializable;
 
-public class copiaBean implements Serializable
+public class CopiaBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -13,7 +13,7 @@ public class copiaBean implements Serializable
     String titoloVideogioco;
     String nomeConsole;
 
-    public copiaBean()
+    public CopiaBean()
         {
             stato = false;
             percIva = 0.0f;
@@ -96,7 +96,7 @@ public class copiaBean implements Serializable
             public boolean equals(Object b) {		
             	if (b==null) return false;
             	if (b.getClass() != this.getClass()) return false;
-            	copiaBean altraCopia = (copiaBean) b;
+            	CopiaBean altraCopia = (CopiaBean) b;
             	if (this.codiceCopia == altraCopia.getCodiceCopia()) return true;
             	else {
             		if (this.nomeConsole.equals(altraCopia.getNomeConsole())&&

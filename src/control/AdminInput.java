@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.ProdottiDAO;
 import model.VideogiocoDAO;
-import model.beans.copiaBean;
-import model.beans.videogiocoBean;
+import model.beans.CopiaBean;
+import model.beans.VideogiocoBean;
 
 public class AdminInput extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class AdminInput extends HttpServlet {
 	String type = request.getParameter("type");
 	if (type.equals("copia")) {
 		System.out.println(request.getParameter("prezzo"));
-		copiaBean copia = new copiaBean();
+		CopiaBean copia = new CopiaBean();
 		copia.setPercIva(Float.parseFloat(request.getParameter("iva")));
 		copia.setNomeConsole(request.getParameter("console"));
 		copia.setPrezzo(Float.parseFloat(request.getParameter("prezzo")));
@@ -39,7 +39,7 @@ public class AdminInput extends HttpServlet {
 				}
 		}
 	else if (type.equals("videogioco")) {
-		videogiocoBean videogioco = new videogiocoBean();
+		VideogiocoBean videogioco = new VideogiocoBean();
 		videogioco.setDescrizione(request.getParameter("descrizione"));
 		videogioco.setPegi(Integer.parseInt(request.getParameter("pegi")));
 		videogioco.setTitolo(request.getParameter("titolo"));

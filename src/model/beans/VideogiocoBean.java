@@ -1,7 +1,7 @@
 package model.beans;
 import java.io.Serializable;
 
-public class videogiocoBean implements Serializable
+public class VideogiocoBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -9,7 +9,7 @@ public class videogiocoBean implements Serializable
     String descrizione;
     int pegi;
 
-    public videogiocoBean()
+    public VideogiocoBean()
         {
             titolo = " ";
             descrizione = " ";

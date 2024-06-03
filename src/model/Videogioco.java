@@ -2,8 +2,8 @@ package model;
 
 import java.sql.SQLException;
 
-import model.beans.videogiocoBean;
+import model.beans.VideogiocoBean;
 
 public interface Videogioco {
-	public videogiocoBean leggiVideogioco(String titolo) throws SQLException;
+	public VideogiocoBean leggiVideogioco(String titolo) throws SQLException;
 }

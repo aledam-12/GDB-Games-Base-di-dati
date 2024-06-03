@@ -1,21 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "java.util.ArrayList, model.beans.acquistoBean" %>
+<%@ page import = "java.util.ArrayList,model.beans.AcquistoBean" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
 	</head>
-	<% ArrayList <acquistoBean> ordini = (ArrayList <acquistoBean>) request.getAttribute("ordini"); 
-	if (ordini == null) {
-	response.sendRedirect("../admin/adminCheck");
-	return;
-	}
+	<%
+		ArrayList <AcquistoBean> ordini = (ArrayList <AcquistoBean>) request.getAttribute("ordini"); 
+		if (ordini == null) {
+		response.sendRedirect("../admin/adminCheck");
+		return;
+		}
 	%>
 	<body>
-		<% if (ordini.size() == 0) {%>
+		<%
+			if (ordini.size() == 0) {
+		%>
 			<p class = "error-message"> Non ci sono ordini effettuati</p>
-		<%return;} %>
+		<%
+			return;}
+		%>
 		<table class = "acquisti">
 			<tr>
 				<th>N. Fattura</th>
@@ -25,7 +30,9 @@
 				<th>Indirizzo Spedizione </th>
 				<th>Dettagli </th>
 			</tr>
-			<% for (acquistoBean ord : ordini) {%>
+			<%
+				for (AcquistoBean ord : ordini) {
+			%>
 			<tr>
 				<td> <%=ord.getnFattura() %> </td>
 				<td> <%=ord.getdataAcquito() %> </td>

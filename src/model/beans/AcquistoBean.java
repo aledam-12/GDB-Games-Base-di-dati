@@ -2,7 +2,7 @@ package model.beans;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class acquistoBean implements Serializable   
+public class AcquistoBean implements Serializable   
 {
     private static final long serialVersionUID = 1L;
 
@@ -15,7 +15,7 @@ public class acquistoBean implements Serializable
     String citta;
     float prezzoTotale;
 
-    public acquistoBean()
+    public AcquistoBean()
         {
             emailcliente = " ";
             nCarta = 0;

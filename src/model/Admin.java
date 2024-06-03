@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.beans.acquistoBean;
-import model.beans.videogiocoBean;
+import model.beans.AcquistoBean;
+import model.beans.VideogiocoBean;
 
 @WebServlet("/Admin")
 public class Admin extends HttpServlet {
@@ -27,13 +27,13 @@ public class Admin extends HttpServlet {
 		AcquistoDAO adao = new AcquistoDAO();
 		if (action.contentEquals("orders")) {
 			String sort = request.getParameter("sort");
-			try {ArrayList <acquistoBean> acquisti = (ArrayList <acquistoBean>) adao.leggiTuttiOrdini(sort);
+			try {ArrayList <AcquistoBean> acquisti = (ArrayList <AcquistoBean>) adao.leggiTuttiOrdini(sort);
 			request.setAttribute("acquisti", acquisti);
 			}
 			catch (SQLException e) {e.getStackTrace();}
 		}
 		if (action.equals("insertgame")) {
-			videogiocoBean videogioco = new videogiocoBean();
+			VideogiocoBean videogioco = new VideogiocoBean();
 			//distinzioneDAO ddao = new distinzioneDAO();
 			String titolo = request.getParameter("titolo-videogioco");
 			//String genere = request.getParameter("genere-videogioco");

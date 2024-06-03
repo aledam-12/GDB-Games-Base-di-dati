@@ -10,7 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 	import javax.servlet.http.HttpServletRequest;
 	import javax.servlet.http.HttpServletResponse;
-	public class controlloCatalogo extends HttpServlet 
+	public class ControlloCatalogo extends HttpServlet 
 	{    
 		ProdottiDAO pdao = new ProdottiDAO();
 		private static final long serialVersionUID = 1L;

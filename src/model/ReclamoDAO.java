@@ -1,12 +1,12 @@
 package model;
-import model.beans.reclamoBean;
+import model.beans.ReclamoBean;
 import java.sql.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 public class ReclamoDAO
 {
-    public synchronized void inseriscireclamo(reclamoBean r) throws SQLException
+    public synchronized void inseriscireclamo(ReclamoBean r) throws SQLException
         {
             Connection c = null;
             PreparedStatement PrepareStatement = null;
@@ -33,10 +33,10 @@ public class ReclamoDAO
                          }
         }
 
-    public synchronized ArrayList<reclamoBean> leggiReclami (int num) throws SQLException
+    public synchronized ArrayList<ReclamoBean> leggiReclami (int num) throws SQLException
         {
 		    String sql = "SELECT * FROM reclamo";
-		    ArrayList <reclamoBean> r = new ArrayList <>();
+		    ArrayList <ReclamoBean> r = new ArrayList <>();
 		    Connection conn = null;
 		    PreparedStatement ps = null;
 		    try { 
@@ -45,7 +45,7 @@ public class ReclamoDAO
 	            	ResultSet rs = ps.executeQuery();
 		            while (rs.next()) 
                         {
-			                reclamoBean reclamo = new reclamoBean();
+			                ReclamoBean reclamo = new ReclamoBean();
 			                reclamo.setdatareclamo(rs.getDate("dataReclamo").toLocalDate());
 			                reclamo.setnReclamo(rs.getInt("nReclamo"));
 			                reclamo.settitolo(rs.getString("titolo"));

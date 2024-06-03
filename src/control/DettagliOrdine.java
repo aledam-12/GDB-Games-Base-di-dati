@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.AcquistoDAO;
 import model.ClienteDAO;
 import model.ProdottiDAO;
-import model.beans.acquistoBean;
-import model.beans.clienteBean;
+import model.beans.AcquistoBean;
+import model.beans.ClienteBean;
 
 @WebServlet("/dettagliOrdine")
 public class DettagliOrdine extends HttpServlet {
@@ -33,8 +33,8 @@ public class DettagliOrdine extends HttpServlet {
 		String id = request.getParameter("id");
 		String path = "/admin/visualizzaDettaglio.jsp";
 		try {
-		acquistoBean acquisto = adao.leggiDaId(Integer.parseInt(id));
-		clienteBean cliente = (clienteBean) request.getSession(false).getAttribute("cliente"); //gli ordini sono accessibili solo se si è loggati
+		AcquistoBean acquisto = adao.leggiDaId(Integer.parseInt(id));
+		ClienteBean cliente = (ClienteBean) request.getSession(false).getAttribute("cliente"); //gli ordini sono accessibili solo se si è loggati
 		request.setAttribute("Ordine", acquisto);												// la sessione sarà necessariamente già istanziata
 		request.setAttribute("DettagliOrdine", 	pdao.leggiDaNFattura(acquisto));
 		request.setAttribute("Cliente", cdao.leggiCliente(acquisto.getemailcliente()));

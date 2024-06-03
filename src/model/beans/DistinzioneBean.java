@@ -1,14 +1,14 @@
 package model.beans;
 import java.io.Serializable;
 
-public class distinzioneBean implements Serializable
+public class DistinzioneBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     String titoloVideogioco;
     String nomeGenere;
 
-    public distinzioneBean()
+    public DistinzioneBean()
         {
             titoloVideogioco = " ";
             nomeGenere = " ";

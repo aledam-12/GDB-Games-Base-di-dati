@@ -1,13 +1,13 @@
 package model.beans;
 import java.io.Serializable;
 
-public class consoleBean implements Serializable
+public class ConsoleBean implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     String nome;
 
-    public consoleBean()
+    public ConsoleBean()
         {
             nome = " ";
         }

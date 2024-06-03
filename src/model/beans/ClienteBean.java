@@ -1,7 +1,7 @@
 package model.beans;
 import java.io.Serializable;
 
-public class clienteBean implements Serializable 
+public class ClienteBean implements Serializable 
 {
     private static final long serialVersionUID = 1L;
 
@@ -16,7 +16,7 @@ public class clienteBean implements Serializable
     int cap;
     String stato;
 
-    public clienteBean()
+    public ClienteBean()
         {
             email = " ";
             nome = " ";

@@ -3,8 +3,8 @@ import model.OrdineCopia;
 
 import model.AcquistoDAO;
 import model.ProdottiDAO;
-import model.beans.acquistoBean;
-import model.beans.clienteBean;
+import model.beans.AcquistoBean;
+import model.beans.ClienteBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,9 +21,9 @@ public class Checkout extends HttpServlet {
 	@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Carrello carrelloCheckout = (Carrello) req.getSession().getAttribute("carrello");
-        clienteBean cliente = (clienteBean) req.getSession().getAttribute("cliente");	//il cliente di sicuro sarà registrato
+        ClienteBean cliente = (ClienteBean) req.getSession().getAttribute("cliente");	//il cliente di sicuro sarà registrato
         float prezzoTot = (float) carrelloCheckout.getPrezzoTotale();						//lo garantisce il filtro
-        acquistoBean acquistoBean = new acquistoBean();
+        AcquistoBean acquistoBean = new AcquistoBean();
         acquistoBean.setemailcliente(cliente.getEmail());
         acquistoBean.setPrezzoTotale(prezzoTot);
         acquistoBean.setCitta(req.getParameter("citta-spedizione"));

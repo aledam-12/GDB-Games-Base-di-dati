@@ -1,7 +1,7 @@
 package control;
 
 import model.ReclamoDAO;
-import model.beans.reclamoBean;
+import model.beans.ReclamoBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +21,7 @@ public class Reclamo extends HttpServlet {
 		String titolo = request.getParameter("titolo");
 		String descrizione = request.getParameter("descrizione");
 		ReclamoDAO ReclamoDAO = new ReclamoDAO();
-		reclamoBean reclamo = new reclamoBean();
+		ReclamoBean reclamo = new ReclamoBean();
 		reclamo.setEmailCliente(utenteId);
 		reclamo.settitolo(titolo);
 		reclamo.setcontenuto(descrizione);

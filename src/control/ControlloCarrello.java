@@ -6,7 +6,7 @@ import model.OrdineCopia;
 import model.ProdottiDAO;
 
 
-public class controlloCarrello extends HttpServlet{
+public class ControlloCarrello extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response){
 		ProdottiDAO pdao = new ProdottiDAO();

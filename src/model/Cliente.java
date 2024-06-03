@@ -1,10 +1,10 @@
 package model;
-import model.beans.clienteBean;
+import model.beans.ClienteBean;
 import java.sql.*;
 
 public interface Cliente
 {
-    public void inserisciCliente(clienteBean c) throws SQLException;
-    public clienteBean leggiCliente(String e) throws SQLException;
-    public boolean isRegistrato (clienteBean cliente) throws SQLException;
+    public void inserisciCliente(ClienteBean c) throws SQLException;
+    public ClienteBean leggiCliente(String e) throws SQLException;
+    public boolean isRegistrato (ClienteBean cliente) throws SQLException;
 }

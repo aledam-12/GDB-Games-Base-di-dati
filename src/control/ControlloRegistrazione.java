@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.ClienteDAO;
-import model.beans.clienteBean;
+import model.beans.ClienteBean;
 
-@WebServlet("/controlloRegistrazione")
-public class controlloRegistrazione extends HttpServlet {
-	public controlloRegistrazione () {
+@WebServlet("/ControlloRegistrazione")
+public class ControlloRegistrazione extends HttpServlet {
+	public ControlloRegistrazione () {
 		super();
 	}
 	private static final long serialVersionUID = 1L;
@@ -21,7 +21,7 @@ public class controlloRegistrazione extends HttpServlet {
 		doPost(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-		clienteBean cliente = new clienteBean();
+		ClienteBean cliente = new ClienteBean();
 		ClienteDAO cdao = new ClienteDAO();
 		cliente.setNome(request.getParameter("nome"));
 		cliente.setCognome(request.getParameter("cognome"));

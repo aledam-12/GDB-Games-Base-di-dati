@@ -1,7 +1,7 @@
 package model;
 
 
-import model.beans.acquistoBean;
+import model.beans.AcquistoBean;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -14,12 +14,12 @@ import java.util.List;
         private static final String TABLE_NAME = "acquisto";
         private static final List<String> ORDERS = new ArrayList<>(Arrays.asList("username", "dataOrdine")); 
         
-        public synchronized ArrayList<acquistoBean> cercaOrdini (LocalDate inizio, LocalDate fine, String email) throws SQLException {
+        public synchronized ArrayList<AcquistoBean> cercaOrdini (LocalDate inizio, LocalDate fine, String email) throws SQLException {
         	String SQL = "SELECT * FROM acquisto WHERE dataAcquisto <= ? AND dataAcquisto >= ? ";
         	if (email != null && !email.contentEquals("")) SQL += "AND emailCliente = ?";
         	Connection connection = null;
         	PreparedStatement ps = null;
-        	ArrayList <acquistoBean> acquisti = new ArrayList <>();
+        	ArrayList <AcquistoBean> acquisti = new ArrayList <>();
         	try {
         		connection = connessionePool.getConnection();
         		ps = connection.prepareStatement(SQL);
@@ -28,7 +28,7 @@ import java.util.List;
         		if(email != null && !email.contentEquals("")) ps.setString(3, email);		
         		ResultSet rs = ps.executeQuery();
         		while (rs.next()) {
-        			acquistoBean temp = new acquistoBean();
+        			AcquistoBean temp = new AcquistoBean();
         			temp.setemailcliente(rs.getString("emailCliente"));
         			temp.setnCarta(rs.getInt("ncarta"));
         			temp.setnFattura(rs.getInt("nFattura"));
@@ -46,9 +46,9 @@ import java.util.List;
         	return acquisti;
         }
 
-        public synchronized acquistoBean leggiDaId(int id) throws SQLException {
+        public synchronized AcquistoBean leggiDaId(int id) throws SQLException {
             Connection connection = null;
-            acquistoBean acquistoBean = new acquistoBean();
+            AcquistoBean acquistoBean = new AcquistoBean();
             PreparedStatement preparedStatement = null;
             String query = "SELECT * FROM " + TABLE_NAME + " WHERE nFattura = ?";
         	try { connection = connessionePool.getConnection(); 
@@ -72,8 +72,8 @@ import java.util.List;
         	return acquistoBean;
    }
         
-        public synchronized Collection<acquistoBean> leggiPerEmail(String code) throws SQLException {
-            Collection<acquistoBean> ordini = new ArrayList<>();
+        public synchronized Collection<AcquistoBean> leggiPerEmail(String code) throws SQLException {
+            Collection<AcquistoBean> ordini = new ArrayList<>();
             Connection connection = null;
             PreparedStatement preparedStatement = null;
             String query = "SELECT * FROM " + TABLE_NAME + " WHERE emailCliente = ?";
@@ -83,7 +83,7 @@ import java.util.List;
                 preparedStatement.setString(1, code);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
-                    acquistoBean acquistoBean = new acquistoBean();
+                    AcquistoBean acquistoBean = new AcquistoBean();
                     setOrders(resultSet, acquistoBean);
                     ordini.add(acquistoBean);
                 }
@@ -102,10 +102,10 @@ import java.util.List;
         }
 
 
-        public Collection<acquistoBean> leggiTuttiOrdini(String order) throws SQLException {
+        public Collection<AcquistoBean> leggiTuttiOrdini(String order) throws SQLException {
             Connection connection = null;
             PreparedStatement preparedStatement = null;
-            Collection<acquistoBean> ordini = new ArrayList<>();
+            Collection<AcquistoBean> ordini = new ArrayList<>();
 
             StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME);
 
@@ -121,7 +121,7 @@ import java.util.List;
                 ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()) {
-                    acquistoBean acquistoBean = new acquistoBean();
+                    AcquistoBean acquistoBean = new AcquistoBean();
 
                     setOrders(resultSet,acquistoBean);
 
@@ -139,7 +139,7 @@ import java.util.List;
         }
 
 
-        public synchronized void  inserisciOrdine(acquistoBean acquistoBean) throws SQLException {
+        public synchronized void  inserisciOrdine(AcquistoBean acquistoBean) throws SQLException {
             String query = "INSERT INTO " + TABLE_NAME + " (emailCliente, prezzoTotale, dataAcquisto, cap, via, città, nCarta, nFattura) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         	Connection connection = null;
@@ -174,7 +174,7 @@ import java.util.List;
     			}
     		}
         }
-        public void aggiornaOrdine(acquistoBean product) {
+        public void aggiornaOrdine(AcquistoBean product) {
 
         }
 
@@ -183,7 +183,7 @@ import java.util.List;
             return false;
         }
 
-        private void setOrders(ResultSet resultSet, acquistoBean acquistoBean) throws SQLException {
+        private void setOrders(ResultSet resultSet, AcquistoBean acquistoBean) throws SQLException {
             acquistoBean.setnFattura(resultSet.getInt("nFattura"));
             acquistoBean.setemailcliente(resultSet.getString("emailCliente"));
             acquistoBean.setPrezzoTotale(resultSet.getFloat("prezzoTotale"));

@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class getfotoServlet extends HttpServlet
+public class GetFotoServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
        
-    public getfotoServlet()  
+    public GetFotoServlet()  
         {
             super();
         }
@@ -21,7 +21,7 @@ public class getfotoServlet extends HttpServlet
 		    String id = (String) request.getParameter("titolo");
 		    if (id != null)
 		        {
-			        byte[] by = controllofoto.caricamento(id);
+			        byte[] by = ControlloFoto.caricamento(id);
 		
 			        ServletOutputStream out = response.getOutputStream();
 			        if(by != null)

@@ -1,4 +1,4 @@
-<%@  page import = "model.beans.copiaBean,model.beans.videogiocoBean" %>
+<%@  page import = "model.beans.CopiaBean,model.beans.VideogiocoBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +9,12 @@
 	<div class = "head">
 		<%@include file="header.jsp" %>
     </div>
-    <%copiaBean copia = (copiaBean) request.getAttribute("copia"); %>
-    <%videogiocoBean videogioco = (videogiocoBean) request.getAttribute("videogioco"); %>
+    <%
+    	CopiaBean copia = (CopiaBean) request.getAttribute("copia");
+    %>
+    <%
+    	VideogiocoBean videogioco = (VideogiocoBean) request.getAttribute("videogioco");
+    %>
     <% if (videogioco != null && copia != null) { %>
         <div class="container">
             <div class="gioco">

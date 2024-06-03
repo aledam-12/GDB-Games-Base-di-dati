@@ -1,27 +1,31 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ page import = "model.beans.clienteBean, model.AcquistoDAO, model.beans.acquistoBean, java.util.ArrayList"%>
+<%@ page import = "model.beans.ClienteBean,model.AcquistoDAO,model.beans.AcquistoBean,java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>GDB-Games</title>
 </head>
 <body>
-	  <% 
-	  clienteBean cliente = (clienteBean) request.getSession().getAttribute("cliente"); 
-	  AcquistoDAO adao = new AcquistoDAO();
-	  ArrayList <acquistoBean> ordini = (ArrayList <acquistoBean>)adao.leggiPerEmail(cliente.getEmail());
-	%>  
+	  <%
+	  	ClienteBean cliente = (ClienteBean) request.getSession().getAttribute("cliente"); 
+	  	  	  AcquistoDAO adao = new AcquistoDAO();
+	  	  	  ArrayList <AcquistoBean> ordini = (ArrayList <AcquistoBean>)adao.leggiPerEmail(cliente.getEmail());
+	  %>  
 	<jsp:include page="../header.jsp"/>
 
     <%
-    Boolean reclamoFlag = (Boolean)(request.getAttribute("recalmoFlag"));
+    	Boolean reclamoFlag = (Boolean)(request.getAttribute("recalmoFlag"));
     %>
 
-    <% if (reclamoFlag != null && reclamoFlag.booleanValue()) { %>
+    <%
+    	if (reclamoFlag != null && reclamoFlag.booleanValue()) {
+    %>
         <div class="recalmo-inviato">
            <p>reclamo inviato correttamente</p>
         </div>
-     <% } %>
+     <%
+     	}
+     %>
 
 		<h1> Benvenuto <%=cliente.getNome()%></h1>
 		<h2>Visualizza i tuoi ordini </h2>
@@ -32,8 +36,9 @@
 					<td>Prezzo Totale </td>
 					<td>Dettagli</td>
 				</tr>
-				<%if (ordini != null && ordini.size() != 0) {
-				for(acquistoBean a : ordini) {
+				<%
+					if (ordini != null && ordini.size() != 0) {
+						for(AcquistoBean a : ordini) {
 				%>
 				<tr>
 					<td><%=a.getnFattura()%></td>

@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class controllofoto
+public class ControlloFoto
 {
     public synchronized static byte[] caricamento(String t)
         {

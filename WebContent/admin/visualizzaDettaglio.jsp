@@ -2,7 +2,7 @@
 <%@page import="model.AcquistoDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "model.beans.acquistoBean, java.util.ArrayList, model.OrdineCopia, model.beans.clienteBean" %>
+<%@ page import = "model.beans.AcquistoBean,java.util.ArrayList,model.OrdineCopia,model.beans.ClienteBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,12 +11,13 @@
 <title>GDBGames</title>
 </head>
 	<jsp:include page="../header.jsp"/>
-	<% 	clienteBean cliente = (clienteBean) request.getAttribute("Cliente");
-		acquistoBean ordine = (acquistoBean) request.getAttribute("Ordine"); 
+	<%
+		ClienteBean cliente = (ClienteBean) request.getAttribute("Cliente");
+		AcquistoBean ordine = (AcquistoBean) request.getAttribute("Ordine"); 
 		ArrayList <OrdineCopia> dettagli = (ArrayList <OrdineCopia>) request.getAttribute("DettagliOrdine");
-	if (ordine == null  || dettagli == null)
+			if (ordine == null  || dettagli == null)
 			{
-				response.sendRedirect(request.getServletContext()+"./dettagliOrdine");
+		response.sendRedirect(request.getServletContext()+"./dettagliOrdine");
 			}
 	%>
 <body class="fattura">	

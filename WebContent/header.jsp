@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
     <title>header</title>
-    <%@ page import = "model.beans.clienteBean"%>
+    <%@ page import = "model.beans.ClienteBean"%>
 </head>
 <body>
 

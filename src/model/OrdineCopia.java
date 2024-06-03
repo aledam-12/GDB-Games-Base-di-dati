@@ -1,8 +1,8 @@
 package model;
 import java.io.Serializable;
 
-import model.beans.copiaBean;
-public class OrdineCopia extends copiaBean implements Serializable  {
+import model.beans.CopiaBean;
+public class OrdineCopia extends CopiaBean implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	private int quantità;
 public int getQuantità() {
@@ -12,7 +12,7 @@ public void setQuantità (int q) {
 	if (q < 0) return;
 	else this.quantità = q;
 }
-	public OrdineCopia (int quantità, copiaBean a) {
+	public OrdineCopia (int quantità, CopiaBean a) {
 	super();
 	setCodiceAcquisto(a.getCodiceAcquisto());
 	setCodiceCopia(a.getCodiceCopia());
@@ -23,7 +23,7 @@ public void setQuantità (int q) {
 	setPercIva(a.getPercIva());
 	setQuantità(quantità);
 	}
-	public OrdineCopia (copiaBean a) {
+	public OrdineCopia (CopiaBean a) {
 	super();
 	setCodiceAcquisto(a.getCodiceAcquisto());
 	setCodiceCopia(a.getCodiceCopia());

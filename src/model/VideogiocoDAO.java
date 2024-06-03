@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.beans.videogiocoBean;
+import model.beans.VideogiocoBean;
 
 public class VideogiocoDAO implements Videogioco{
-	public synchronized videogiocoBean leggiVideogioco(String titolo) throws SQLException {
-		videogiocoBean videogioco = new videogiocoBean();
+	public synchronized VideogiocoBean leggiVideogioco(String titolo) throws SQLException {
+		VideogiocoBean videogioco = new VideogiocoBean();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		String SQL = "SELECT * FROM videogioco WHERE titolo = ?";
@@ -33,7 +33,7 @@ public class VideogiocoDAO implements Videogioco{
 		} 
 		return videogioco;
 	}
-	public synchronized void inserisciVideogioco(videogiocoBean videogioco) throws SQLException {
+	public synchronized void inserisciVideogioco(VideogiocoBean videogioco) throws SQLException {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		String SQL = "INSERT INTO videogioco (pegi, descrizione, titolo) VALUES (?, ?, ?)";

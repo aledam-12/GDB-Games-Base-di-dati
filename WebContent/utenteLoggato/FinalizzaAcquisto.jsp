@@ -1,9 +1,9 @@
-<%@ page import="control.controlloCarrello"%>
+<%@ page import="control.ControlloCarrello"%>
 <%@ page import="java.util.Collection"%>
 <%@ page import="control.Carrello"%>
 <%@ page import="model.OrdineCopia" %>
-<%@ page import="model.beans.acquistoBean"%>
-<%@ page import="model.beans.clienteBean"%>
+<%@ page import="model.beans.AcquistoBean"%>
+<%@ page import="model.beans.ClienteBean"%>
 <%@ page import="java.time.LocalDate"%>
 <%
 	Carrello carrello = (Carrello) session.getAttribute("carrello");

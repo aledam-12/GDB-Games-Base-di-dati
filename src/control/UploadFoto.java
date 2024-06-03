@@ -54,7 +54,7 @@ public class UploadFoto extends HttpServlet
                         {
 				            part.write(savePath + File.separator + fileName);
 				            try {
-					                controllofoto.updateImg(id, savePath + File.separator + fileName);
+					                ControlloFoto.updateImg(id, savePath + File.separator + fileName);
 				                } catch (SQLException sqlException) 
                                     {
 					                    System.out.println(sqlException);

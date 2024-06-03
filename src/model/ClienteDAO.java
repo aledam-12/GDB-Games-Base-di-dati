@@ -1,10 +1,10 @@
 package model;
-import model.beans.clienteBean;
+import model.beans.ClienteBean;
 import java.sql.*;
 
 public class ClienteDAO implements Cliente
 {
-    public synchronized void inserisciCliente(clienteBean c) throws SQLException
+    public synchronized void inserisciCliente(ClienteBean c) throws SQLException
         {
             Connection conn = null;
             PreparedStatement PrepareStatement = null;
@@ -36,9 +36,9 @@ public class ClienteDAO implements Cliente
                          }
         }
     
-    public synchronized clienteBean leggiCliente(String e) throws SQLException 
+    public synchronized ClienteBean leggiCliente(String e) throws SQLException 
         {
-		    clienteBean cliente = new clienteBean();
+		    ClienteBean cliente = new ClienteBean();
 		    Connection conn = null;
 		    PreparedStatement ps = null;
 		    String SQL = "SELECT * FROM cliente WHERE email = ?";
@@ -167,7 +167,7 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
 
 
 
-    public synchronized boolean isRegistrato (clienteBean cliente) throws SQLException {
+    public synchronized boolean isRegistrato (ClienteBean cliente) throws SQLException {
     	boolean status = false;
     	String SQL = "SELECT email FROM cliente WHERE email = ?";
     	Connection conn = null;

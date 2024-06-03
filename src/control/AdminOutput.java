@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AcquistoDAO;
-import model.beans.acquistoBean;
+import model.beans.AcquistoBean;
 
 public class AdminOutput extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,7 @@ public class AdminOutput extends HttpServlet {
         super();
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList <acquistoBean> ordini = new ArrayList <>();
+		ArrayList <AcquistoBean> ordini = new ArrayList <>();
 			AcquistoDAO adao = new AcquistoDAO();
 			try {
 			String inizio = request.getParameter("inizio");
@@ -33,7 +33,7 @@ public class AdminOutput extends HttpServlet {
 				request.setAttribute("ordini", ordini);
 			}
 			else {
-				ordini = (ArrayList <acquistoBean>)adao.leggiTuttiOrdini("");
+				ordini = (ArrayList <AcquistoBean>)adao.leggiTuttiOrdini("");
 				request.setAttribute("ordini", ordini);	
 				}
 			}
