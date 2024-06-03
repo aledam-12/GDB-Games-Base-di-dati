@@ -7,7 +7,12 @@ form {
     border-radius: 5px;
     font-size: 1.2em;
   }
-
+.form-container {
+	display: flex;
+	margin: 5% 30% 5% 30%;
+	align-items: center;
+	justify-content: center;
+}
 .required {
     color: red;
   }
@@ -19,7 +24,7 @@ form {
   
 label, input, select {
     display: block;
-    width: 30%;
+    width: 100%;
     margin-bottom: 10px;
   }
 

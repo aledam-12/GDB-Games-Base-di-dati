@@ -12,7 +12,7 @@ public class ReclamoDAO
             PreparedStatement PrepareStatement = null;
             String query = "INSERT INTO reclamo(dataReclamo, nReclamo, titolo, contenuto, emailCliente ) VALUE(?, ?, ?, ?, ?)";
             try{
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     PreparedStatement ps= c.prepareStatement(query);
                     ps.setDate(1, Date.valueOf(LocalDate.now()));
                     ps.setInt(2, r.getnReclamo());
@@ -28,7 +28,7 @@ public class ReclamoDAO
                                             PrepareStatement.close();
                                         }
                                 } finally {
-                                            connessionePool.rilasciaConnessione(c);
+                                            ConnectionPool.rilasciaConnessione(c);
                                           }
                          }
         }
@@ -40,7 +40,7 @@ public class ReclamoDAO
 		    Connection conn = null;
 		    PreparedStatement ps = null;
 		    try { 
-                    conn = connessionePool.getConnection(); 
+                    conn = ConnectionPool.getConnection(); 
 		            ps = conn.prepareStatement(sql); 
 	            	ResultSet rs = ps.executeQuery();
 		            while (rs.next()) 
@@ -61,7 +61,7 @@ public class ReclamoDAO
 					        ps.close();
                         }
 			        } finally {
-				        connessionePool.rilasciaConnessione(conn);
+				        ConnectionPool.rilasciaConnessione(conn);
 			                  }
 		            }
 		    return r;
@@ -73,12 +73,12 @@ public class ReclamoDAO
             PreparedStatement ps = null;
             int risultato = 0;
             String query ="DELETE FROM reclamo WHERE nReclamo = ? ";
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     ps = c.prepareStatement(query);
                     ps.setInt(1, n);
                     ps.executeUpdate();   
                     ps.close();
-                    connessionePool.rilasciaConnessione(c);
+                    ConnectionPool.rilasciaConnessione(c);
                     return risultato != 0;
         }
 }

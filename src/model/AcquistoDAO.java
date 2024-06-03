@@ -21,7 +21,7 @@ import java.util.List;
         	PreparedStatement ps = null;
         	ArrayList <AcquistoBean> acquisti = new ArrayList <>();
         	try {
-        		connection = connessionePool.getConnection();
+        		connection = ConnectionPool.getConnection();
         		ps = connection.prepareStatement(SQL);
         		ps.setString(1, fine.toString());
         		ps.setString(2, inizio.toString());
@@ -51,7 +51,7 @@ import java.util.List;
             AcquistoBean acquistoBean = new AcquistoBean();
             PreparedStatement preparedStatement = null;
             String query = "SELECT * FROM " + TABLE_NAME + " WHERE nFattura = ?";
-        	try { connection = connessionePool.getConnection(); 
+        	try { connection = ConnectionPool.getConnection(); 
         	preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -66,7 +66,7 @@ import java.util.List;
                         preparedStatement.close();
                     }
             } finally {
-                        connessionePool.rilasciaConnessione(connection);
+                        ConnectionPool.rilasciaConnessione(connection);
                       }
      }
         	return acquistoBean;
@@ -78,7 +78,7 @@ import java.util.List;
             PreparedStatement preparedStatement = null;
             String query = "SELECT * FROM " + TABLE_NAME + " WHERE emailCliente = ?";
 
-            try { connection = connessionePool.getConnection(); 
+            try { connection = ConnectionPool.getConnection(); 
             	preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setString(1, code);
                 ResultSet resultSet = preparedStatement.executeQuery();
@@ -95,7 +95,7 @@ import java.util.List;
                             preparedStatement.close();
                         }
                 } finally {
-                            connessionePool.rilasciaConnessione(connection);
+                            ConnectionPool.rilasciaConnessione(connection);
                           }
          }
             return ordini;
@@ -110,7 +110,7 @@ import java.util.List;
             StringBuilder query = new StringBuilder("SELECT * FROM " + TABLE_NAME);
 
             try {
-                connection = connessionePool.getConnection();
+                connection = ConnectionPool.getConnection();
 
                 for (String s: ORDERS)
                     if (s.equals(order))
@@ -132,7 +132,7 @@ import java.util.List;
                 if (preparedStatement!= null)
                     preparedStatement.close();
                 if (connection != null)
-                    connessionePool.rilasciaConnessione(connection);
+                    ConnectionPool.rilasciaConnessione(connection);
             }
 
             return ordini;
@@ -146,7 +146,7 @@ import java.util.List;
         	PreparedStatement preparedStatement = null;
    
             try  {
-            	connection = connessionePool.getConnection(); 
+            	connection = ConnectionPool.getConnection(); 
             	preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 preparedStatement.setString(1, acquistoBean.getemailcliente());
                 preparedStatement.setFloat(2, acquistoBean.getPrezzoTotale());
@@ -170,7 +170,7 @@ import java.util.List;
     				if (preparedStatement != null)
     					preparedStatement.close();
     			} finally {
-    				connessionePool.rilasciaConnessione(connection);
+    				ConnectionPool.rilasciaConnessione(connection);
     			}
     		}
         }

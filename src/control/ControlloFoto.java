@@ -1,7 +1,7 @@
 package control;
 import java.sql.*;
 
-import model.connessionePool;
+import model.ConnectionPool;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,7 @@ public class ControlloFoto
             PreparedStatement st = null;
             byte b[] = null;
             try{
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     String query = "SELECT img FROM videogioco WHERE titolo = ?";
                     st = c.prepareStatement(query);
                     st.setString(1, t);
@@ -41,7 +41,7 @@ public class ControlloFoto
                                     } finally {
                                             if (c != null)
                                                 { 
-                                                    connessionePool.rilasciaConnessione(c);
+                                                    ConnectionPool.rilasciaConnessione(c);
                                                 }
                                               }
                             }
@@ -53,7 +53,7 @@ public class ControlloFoto
             Connection c = null;
             PreparedStatement st = null;
             try {
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     String query = "UPDATE videogioco SET img = ? WHERE titolo = ?";
                     st = c.prepareStatement(query);
                     File file = new File(url);
@@ -82,7 +82,7 @@ public class ControlloFoto
                                 } finally {
                                     if (c != null)
                                         {
-                                            connessionePool.rilasciaConnessione(c);
+                                            ConnectionPool.rilasciaConnessione(c);
                                         }
                                           }
                           }

@@ -10,7 +10,7 @@ public class ProdottiDAO implements Prodotti
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
-			conn = connessionePool.getConnection();
+			conn = ConnectionPool.getConnection();
 			ps = conn.prepareStatement(SQL);
 			ps.setFloat(1, IVA);
 			System.out.println(ps);
@@ -22,7 +22,7 @@ public class ProdottiDAO implements Prodotti
 				if (ps != null)
 					ps.close();
 			} finally {
-				connessionePool.rilasciaConnessione(conn);
+				ConnectionPool.rilasciaConnessione(conn);
 			}
 		}
 	}
@@ -34,7 +34,7 @@ public class ProdottiDAO implements Prodotti
 		PreparedStatement ps = null;
 		ArrayList <OrdineCopia> ProdottiAcquistati = new ArrayList <>();
 		try {													//l'iva è uguale per lo stesso tipo di videogioco acquistato nello stesso ordine
-		conn = connessionePool.getConnection();
+		conn = ConnectionPool.getConnection();
 		ps = conn.prepareStatement(SQL);
 		ps.setInt(1, acquisto.getnFattura());
 		ResultSet rs = ps.executeQuery();
@@ -54,7 +54,7 @@ public class ProdottiDAO implements Prodotti
 				if (ps != null)
 					ps.close();
 			} finally {
-				connessionePool.rilasciaConnessione(conn);
+				ConnectionPool.rilasciaConnessione(conn);
 			}
 		}
 		return ProdottiAcquistati;
@@ -64,7 +64,7 @@ public class ProdottiDAO implements Prodotti
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
-			conn = connessionePool.getConnection();
+			conn = ConnectionPool.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, acquisto.getnFattura());
 			ps.setString(2, copia.getTitoloVideogioco());
@@ -78,7 +78,7 @@ public class ProdottiDAO implements Prodotti
 				if (ps != null)
 					ps.close();
 			} finally {
-				connessionePool.rilasciaConnessione(conn);
+				ConnectionPool.rilasciaConnessione(conn);
 			}
 		}
 	} 
@@ -93,7 +93,7 @@ public class ProdottiDAO implements Prodotti
 		    PreparedStatement ps = null;
 		    int quantità = 0;
 		    try {
-			    conn = connessionePool.getConnection();
+			    conn = ConnectionPool.getConnection();
 			    ps = conn.prepareStatement(sql);
 			    ps.setString(1, copia.getTitoloVideogioco());
 			    ps.setString(2, copia.getNomeConsole());
@@ -111,7 +111,7 @@ public class ProdottiDAO implements Prodotti
 					        ps.close();
                         }
 			        } finally {
-				        connessionePool.rilasciaConnessione(conn);
+				        ConnectionPool.rilasciaConnessione(conn);
 			                  }
 		            }
 		    return quantità;
@@ -125,7 +125,7 @@ public class ProdottiDAO implements Prodotti
             PreparedStatement PrepareStatement = null;
             String query = "INSERT INTO videogioco(titolo, descrizione, pegi) VALUE(?, ?, ?)";
             try{
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     PreparedStatement ps= c.prepareStatement(query);
                     ps.setString(1, v.getTitolo());
                     ps.setString(2, v.getDescrizione());
@@ -139,7 +139,7 @@ public class ProdottiDAO implements Prodotti
                                             PrepareStatement.close();
                                         }
                                 } finally {
-                                            connessionePool.rilasciaConnessione(c);
+                                            ConnectionPool.rilasciaConnessione(c);
                                           }
                          }
         }
@@ -153,7 +153,7 @@ public class ProdottiDAO implements Prodotti
             PreparedStatement ps = null;
             String query = "INSERT INTO copia(stato, percIva, prezzo, titoloVideogioco, nomeConsole) VALUE(?, ?, ?, ?, ?)";
                 try {   
-            	c = connessionePool.getConnection();
+            	c = ConnectionPool.getConnection();
                     ps= c.prepareStatement(query);
                     ps.setBoolean(1, false);
                     ps.setFloat(2, copia.getPercIva());
@@ -170,7 +170,7 @@ public class ProdottiDAO implements Prodotti
                                         ps.close();
                                     }
                             } finally {
-                                        connessionePool.rilasciaConnessione(c);
+                                        ConnectionPool.rilasciaConnessione(c);
                                       }
                      }
         }
@@ -183,12 +183,12 @@ public class ProdottiDAO implements Prodotti
             PreparedStatement ps = null;
             int risultato = 0;
             String query ="DELETE FROM videogioco WHERE titolo = ? ";
-                    c = connessionePool.getConnection();
+                    c = ConnectionPool.getConnection();
                     ps = c.prepareStatement(query);
                     ps.setString(1, titolo);
                     ps.executeUpdate();   
                     ps.close();
-                    connessionePool.rilasciaConnessione(c);
+                    ConnectionPool.rilasciaConnessione(c);
                     return risultato != 0;
         }
 
@@ -201,12 +201,12 @@ public class ProdottiDAO implements Prodotti
                     PreparedStatement ps = null;
                     int risultato = 0;
                     String query ="DELETE FROM copia WHERE stato = 0 && titolovideogioco = ? ";
-                            c = connessionePool.getConnection();
+                            c = ConnectionPool.getConnection();
                             ps = c.prepareStatement(query);
                             ps.setString(1, titolovideogioco);
                             risultato = ps.executeUpdate();      
                             ps.close();
-                            connessionePool.rilasciaConnessione(c);
+                            ConnectionPool.rilasciaConnessione(c);
                             return risultato != 0;
         }
     
@@ -219,7 +219,7 @@ public class ProdottiDAO implements Prodotti
 		    PreparedStatement ps = null;
 		    String SQL = "SELECT * FROM copia WHERE codiceCopia = ?";
 		    try { 
-                    conn = connessionePool.getConnection();
+                    conn = ConnectionPool.getConnection();
 		            ps = conn.prepareStatement(SQL);
 		            ps.setInt(1, codice);
 		            ResultSet rs = ps.executeQuery();
@@ -239,7 +239,7 @@ public class ProdottiDAO implements Prodotti
 					        ps.close();
                         }
 			        } finally {
-				                connessionePool.rilasciaConnessione(conn);
+				                ConnectionPool.rilasciaConnessione(conn);
 			                  }
 		    } 
 		return copia;
@@ -258,7 +258,7 @@ public class ProdottiDAO implements Prodotti
 			        sql += " ORDER BY " + sort;
 		        }	
 		    try { 
-                    conn = connessionePool.getConnection(); 
+                    conn = ConnectionPool.getConnection(); 
 		            ps = conn.prepareStatement(sql); 
 	            	ResultSet rs = ps.executeQuery();
 		            while (rs.next()) 
@@ -279,7 +279,7 @@ public class ProdottiDAO implements Prodotti
 					        ps.close();
                         }
 			        } finally {
-				        connessionePool.rilasciaConnessione(conn);
+				        ConnectionPool.rilasciaConnessione(conn);
 			                  }
 		            }
 		    return copie;
@@ -293,7 +293,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'videogioco' SET pegi = ? WHERE titolo = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setInt(1, p);
                 ps.setString(2, m);
@@ -304,7 +304,7 @@ public class ProdottiDAO implements Prodotti
 					                    ps.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -315,7 +315,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'videogioco' SET descrizione = ? WHERE titolo = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setString(1, d);
                 preparedStatement.setString(2, m);
@@ -326,7 +326,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -337,7 +337,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'videogioco' SET pegi = ?, descrizione = ? WHERE titolo = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setInt(1, p);
                 preparedStatement.setString(2, d);
@@ -349,7 +349,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -364,7 +364,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET stato = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setInt(1, s);
                 preparedStatement.setString(2, m);
@@ -375,7 +375,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -387,7 +387,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET percIva = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setFloat(1, iva);
                 preparedStatement.setString(2, m);
@@ -398,7 +398,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -410,7 +410,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET prezzo = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setFloat(1, pre);
                 preparedStatement.setString(2, m);
@@ -421,7 +421,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                       connessionePool.rilasciaConnessione(c);
+				                       ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
         }
@@ -432,7 +432,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'copia' SET stato = ?, prezzo = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setInt(1, s);
                 ps.setFloat(2, pre);
@@ -444,7 +444,7 @@ public class ProdottiDAO implements Prodotti
 					                    ps.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -456,7 +456,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET percIva = ?, prezzo = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setFloat(1, iva);
                 preparedStatement.setFloat(2, pre);
@@ -468,7 +468,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -480,7 +480,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET stato = ?, percIva = ?, prezzo = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setInt(1, s);
                 preparedStatement.setFloat(2, iva);
@@ -493,7 +493,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
 
@@ -507,7 +507,7 @@ public class ProdottiDAO implements Prodotti
 	        PreparedStatement preparedStatement = null;
             String query = "UPDATE 'gdbgames'.'copia' SET percIva = ? WHERE titoloVideogioco = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setFloat(1, iva);
                 preparedStatement.setString(2, m);
@@ -518,7 +518,7 @@ public class ProdottiDAO implements Prodotti
 					                    preparedStatement.close();
                                     }
 			                    } finally {
-				                       connessionePool.rilasciaConnessione(c);
+				                       ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }		
 	    }

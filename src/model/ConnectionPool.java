@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.List;
 import java.util.LinkedList;
 
-public class connessionePool
+public class ConnectionPool
 {
     private static List<Connection> connDB; 
 
@@ -39,11 +39,11 @@ public class connessionePool
             if(!connDB.isEmpty()) 
                 {
                     conn = (Connection) connDB.get(0); 
-                    connessionePool.connDB.remove(0);
+                    ConnectionPool.connDB.remove(0);
                     try{
                             if(conn.isClosed()) 
                                 {	
-                                    conn = connessionePool.getConnection(); 
+                                    conn = ConnectionPool.getConnection(); 
                                 }   
                        }
                     catch(SQLException e)
@@ -60,6 +60,6 @@ public class connessionePool
 
     public static synchronized void rilasciaConnessione(Connection c) 
         {if(c != null)
-    	connessionePool.connDB.add(c);
+    	ConnectionPool.connDB.add(c);
         }
 }

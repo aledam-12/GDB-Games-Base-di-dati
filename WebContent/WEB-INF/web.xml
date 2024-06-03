@@ -10,7 +10,7 @@
   
     <servlet>
     <servlet-name>controlloCatalogo</servlet-name>
-    <servlet-class>control.controlloCatalogo</servlet-class>
+    <servlet-class>control.ControlloCatalogo</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>controlloCatalogo</servlet-name>
@@ -18,7 +18,7 @@
   </servlet-mapping>
       <servlet>
     <servlet-name>controlloCarrello</servlet-name>
-    <servlet-class>control.controlloCarrello</servlet-class>
+    <servlet-class>control.ControlloCarrello</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>controlloCarrello</servlet-name>
@@ -26,7 +26,7 @@
   </servlet-mapping>
       <servlet>
       <servlet-name>getfotoServlet</servlet-name>
-      <servlet-class>control.getfotoServlet</servlet-class>
+      <servlet-class>control.GetFotoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>getfotoServlet</servlet-name>

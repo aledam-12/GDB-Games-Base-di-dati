@@ -10,7 +10,7 @@ public class ClienteDAO implements Cliente
             PreparedStatement PrepareStatement = null;
             String query = "INSERT INTO cliente(email, nome, cognome, pw, via, civico, città, provincia, cap, stato) VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             try{
-                    conn = connessionePool.getConnection();
+                    conn = ConnectionPool.getConnection();
                     PreparedStatement ps= conn.prepareStatement(query);
                     ps.setString(1, c.getEmail());
                     ps.setString(2, c.getNome());
@@ -31,7 +31,7 @@ public class ClienteDAO implements Cliente
                                             PrepareStatement.close();
                                         }
                                 } finally {
-                                            connessionePool.rilasciaConnessione(conn);
+                                            ConnectionPool.rilasciaConnessione(conn);
                                           }
                          }
         }
@@ -43,7 +43,7 @@ public class ClienteDAO implements Cliente
 		    PreparedStatement ps = null;
 		    String SQL = "SELECT * FROM cliente WHERE email = ?";
 		    try { 
-                    conn = connessionePool.getConnection();
+                    conn = ConnectionPool.getConnection();
 		            ps = conn.prepareStatement(SQL);
 		            ps.setString(1, e);
 		            ResultSet rs = ps.executeQuery();
@@ -68,7 +68,7 @@ public class ClienteDAO implements Cliente
 					        ps.close();
                         }
 			        } finally {
-				                connessionePool.rilasciaConnessione(conn);
+				                ConnectionPool.rilasciaConnessione(conn);
 			                  }
 		    } 
 		return cliente;
@@ -80,7 +80,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
 	        PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'cliente' SET pw = ? WHERE email = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setString(1, pass);
                 ps.setString(2, e);
@@ -91,7 +91,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
 					                    ps.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
         }
@@ -102,7 +102,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
             PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'cliente' SET via = ?, civico = ? WHERE email = ?";
             try{
-                conn = connessionePool.getConnection();
+                conn = ConnectionPool.getConnection();
                 ps = conn.prepareStatement(query);
                 ps.setString(1, v);
                 ps.setInt(2, c);
@@ -114,7 +114,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
                                             ps.close();
                                         }
                                 } finally {
-                                            connessionePool.rilasciaConnessione(conn);
+                                            ConnectionPool.rilasciaConnessione(conn);
                                           }
                          }
         }
@@ -125,7 +125,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
             PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'cliente' SET città = ?, provincia = ?, cap = ? WHERE email = ?";
             try{
-                conn = connessionePool.getConnection();
+                conn = ConnectionPool.getConnection();
                 ps = conn.prepareStatement(query);
                 ps.setString(1, c);
                 ps.setString(2, p);
@@ -138,7 +138,7 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
                                             ps.close();
                                         }
                                 } finally {
-                                            connessionePool.rilasciaConnessione(conn);
+                                            ConnectionPool.rilasciaConnessione(conn);
                                           }
                          }
         }
@@ -149,7 +149,7 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
 	        PreparedStatement ps = null;
             String query = "UPDATE 'gdbgames'.'cliente' SET stato = ? WHERE email = ?";
             try{
-                c = connessionePool.getConnection();
+                c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setString(1, stato);
                 ps.setString(2, e);
@@ -160,7 +160,7 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
 					                    ps.close();
                                     }
 			                    } finally {
-				                        connessionePool.rilasciaConnessione(c);
+				                        ConnectionPool.rilasciaConnessione(c);
 			                              }
 		                  }
         }
@@ -173,7 +173,7 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
     	Connection conn = null;
     	PreparedStatement ps = null;
     	try {
-    		conn = connessionePool.getConnection();
+    		conn = ConnectionPool.getConnection();
     		ps = conn.prepareStatement(SQL);
     		ps.setString(1, cliente.getEmail());
     		ResultSet rs = ps.executeQuery();
@@ -189,7 +189,7 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
 				        ps.close();
                     }
 		        } finally {
-			                connessionePool.rilasciaConnessione(conn);
+			                ConnectionPool.rilasciaConnessione(conn);
 		                  }
 	    } 
     	return status;

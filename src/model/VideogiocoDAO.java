@@ -13,7 +13,7 @@ public class VideogiocoDAO implements Videogioco{
 		Connection conn = null;
 		PreparedStatement ps = null;
 		String SQL = "SELECT * FROM videogioco WHERE titolo = ?";
-		try { conn = connessionePool.getConnection();
+		try { conn = ConnectionPool.getConnection();
 		ps = conn.prepareStatement(SQL);
 		ps.setString(1, titolo);
 		ResultSet rs = ps.executeQuery();
@@ -28,7 +28,7 @@ public class VideogiocoDAO implements Videogioco{
 				if (ps != null)
 					ps.close();
 			} finally {
-				connessionePool.rilasciaConnessione(conn);
+				ConnectionPool.rilasciaConnessione(conn);
 			}
 		} 
 		return videogioco;
@@ -38,7 +38,7 @@ public class VideogiocoDAO implements Videogioco{
 		PreparedStatement ps = null;
 		String SQL = "INSERT INTO videogioco (pegi, descrizione, titolo) VALUES (?, ?, ?)";
 		try {
-			conn = connessionePool.getConnection();
+			conn = ConnectionPool.getConnection();
 			ps = conn.prepareStatement(SQL);
 			ps.setInt (1, videogioco.getPegi());
 			ps.setString(2,videogioco.getDescrizione());
@@ -51,7 +51,7 @@ public class VideogiocoDAO implements Videogioco{
 				if (ps != null)
 					ps.close();
 			} finally {
-				connessionePool.rilasciaConnessione(conn);
+				ConnectionPool.rilasciaConnessione(conn);
 			}
 		} 
 	}
