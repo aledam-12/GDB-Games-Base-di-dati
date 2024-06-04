@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Inserimento feedback</title>
-<link rel ="stylesheet" type = "text/css" href = "Funzioni_Admin/stile_inserire_videogiochi.css" > 
+<link rel ="stylesheet" type = "text/css" href = "stile_inserire_videogiochi.css" > 
 </head>
 <body>
 <div class="header"><%@include file="../header.jsp" %></div>

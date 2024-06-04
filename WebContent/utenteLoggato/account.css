@@ -32,6 +32,9 @@ body {
         color: white;
         cursor: pointer;
     }
+    button:hover {
+    	background-color: #a64ca6;
+  	}
 
     button a {
         text-decoration: none;
