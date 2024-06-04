@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>GDB-Games</title>
+	<link rel="stylesheet" href="account.css">
 </head>
 <body>
 	  <%
@@ -27,8 +28,10 @@
      	}
      %>
 
-		<h1> Benvenuto <%=cliente.getNome()%></h1>
-		<h2>Visualizza i tuoi ordini </h2>
+		<h2> Benvenuto <%=cliente.getNome()%></h2>
+		<button> <a href="./Logout"> Logout </a></button>
+		<button>Modifica i tuoi dati</button>
+		<h3>I tuoi ordini </h3>
 			<table>
 				<tr>
 					<td>N. Fattura</td>
@@ -44,14 +47,11 @@
 					<td><%=a.getnFattura()%></td>
 					<td><%=a.getdataAcquito()%></td>
 					<td><%=a.getPrezzoTotale()%></td>
-					<td><a href="./dettagliOrdine?id=<%=a.getnFattura()%>">Dettagli </a> </td>
+					<td><a href="./dettagliOrdine?id=<%=a.getnFattura()%>">ordine </a> </td>
 				</tr>	
 				<%} }%>
 			</table>
 		
-		<h2>Modifica i tuoi dati</h2>
-		<h2>Logout</h2>
-		<button> <a href="./Logout"> Logout </a></button>
 	<%@include file="/footer.jsp" %>
 </body>
 </html>
