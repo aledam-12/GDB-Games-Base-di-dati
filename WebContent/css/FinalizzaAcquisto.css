@@ -1,0 +1,121 @@
+body {
+    background: radial-gradient(circle, #4B0082, black 70%);
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+#checkoutTable {
+    width: 50%;
+    max-width: 800px;
+    margin-left: 3%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#checkoutTable, th, td {
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center; /* Ensure text is left-aligned */
+}
+
+fieldset {
+    border: 1px solid white;
+    margin-left: 3%;
+    padding: 10px;
+    width: 760%; /* Reduced width */
+    max-width: 580px; /* Reduced max-width */
+}
+
+legend {
+    padding: 0 10px;
+}
+
+label, input {
+    display: block;
+    margin: 10px 0;
+    text-align: left; /* Ensure labels and inputs are left-aligned */
+}
+label {
+	margin-left: 5%;
+}
+fieldset input[type="text"],
+input[type="number"],
+input[type="submit"] {
+    border-radius: 12px;
+    margin-left: 10%;
+    padding: 10px;
+    width: calc(100% - 22px); /* Adjusted for padding and border */
+    max-width: 280px;
+    box-sizing: border-box;
+    height: 33px;
+}
+input[type="number"] {
+	width: 29%;
+	margin-top: -3%;
+}
+fieldset input[type="text"] {
+	margin-top: -3%;
+}
+
+input[type="submit"] {
+	height: 40px;
+    background-color: #800080;
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    max-width: 200px;
+    margin-left: 19%; /* Align submit button to the left */
+}
+
+input[type="submit"]:hover {
+    background-color: #a64ca6;
+}
+/* smartphone */
+  @media screen and (max-width: 600px) {
+  	 body {
+        overflow-y: auto;
+    }
+    header {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    .fine {
+        min-width: 100%;
+        position: absolute;
+    }
+    fieldset {
+        margin-left: 0;
+        width: 88%;
+        max-width: 100%;
+        padding: 10px;
+    }
+    label, input {
+        margin-left: 0;
+        width: 100%;
+    }
+    input[type="number"],
+    fieldset input[type="text"],
+    input[type="submit"] {
+        width: 90%;
+        margin-left: 5%;
+    }
+    input[type="submit"] {
+        width: 90%;
+        margin-left: 5%;
+    }
+    #checkoutTable {
+    	width: 90%;
+    }
+  }
