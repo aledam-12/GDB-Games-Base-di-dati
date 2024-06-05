@@ -33,7 +33,7 @@
         <img src="${pageContext.request.contextPath}/foto/ricerca.png" alt="cerca" class="ricerca">	
     </div>
      <div class="account">
-     		<a href="carrello.jsp">
+     		<a href="${pageContext.request.contextPath}/carrello.jsp">
             	<img src="${pageContext.request.contextPath}/foto/carrello.png" alt="carello" class="carrello">
     		<a href="${pageContext.request.contextPath}/utenteLoggato/account.jsp">
             	<img src="${pageContext.request.contextPath}/foto/omino.png" alt="omino" class="omino" >
