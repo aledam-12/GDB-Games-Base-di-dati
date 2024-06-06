@@ -26,7 +26,11 @@
 				<div class="emettitore">
 				<h3>GDB-GAMES</h3> <pre>
 				Salerno 
-				Email: gdbgames@gmail.com 
+				Email: <br>
+					a.basso23@studenti.unisa.it
+					a.dambrosio101@studenti.unisa.it
+					a.galasso47@studenti.unisa.it
+				
 				P.IVA 05578569413
 				</pre>
 				</div>
