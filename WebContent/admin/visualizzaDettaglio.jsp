@@ -11,7 +11,6 @@
 <title>GDBGames</title>
 
 </head>
-<jsp:include page="../header.jsp"/>
 <%
     ClienteBean cliente = (ClienteBean) request.getAttribute("Cliente");
     AcquistoBean ordine = (AcquistoBean) request.getAttribute("Ordine"); 
