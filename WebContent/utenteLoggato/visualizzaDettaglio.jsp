@@ -6,63 +6,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/fattura.css">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>GDBGames</title>
+
 </head>
-	<%
-		ClienteBean cliente = (ClienteBean) request.getAttribute("Cliente");
-		AcquistoBean ordine = (AcquistoBean) request.getAttribute("Ordine"); 
-		ArrayList <OrdineCopia> dettagli = (ArrayList <OrdineCopia>) request.getAttribute("DettagliOrdine");
-			if (ordine == null  || dettagli == null)
-			{
-		response.sendRedirect(request.getServletContext()+"./dettagliOrdine");
-			}
-	%>
-<body>	
-		<p>
-			<div class = "intestazione">
-				<div class="data-numero"><%=ordine.getnFattura() %>    <%=ordine.getdataAcquito()%></div>
-			
-				<div class="emettitore">
-				<h3>GDB-GAMES</h3> <pre>
-				Salerno 
-				Email: <br>
-					a.basso23@studenti.unisa.it
-					a.dambrosio101@studenti.unisa.it
-					a.galasso47@studenti.unisa.it
-				
-				P.IVA 05578569413
-				</pre>
-				</div>
-				<div class="destinatario">
-				<h3><%=cliente.getNome()%>   <%=cliente.getCognome()%></h3>
-				<pre>
-				<%=ordine.getCitta() %>
-				<%=ordine.getVia() %>
-				<%=ordine.getemailcliente() %>
-				</pre>
-				</div>
-			</div>
-			<div class = "corpo">
-			<b>TOTALE: </b><%=ordine.getPrezzoTotale()%> &euro;
-			<b>QUANTITÀ: </b> <%= dettagli.stream().mapToInt(OrdineCopia::getQuantità).sum()%>
-			<table class="dettagli prodotti">
-				<tr class="titoli-tabella">
-					<th>Titolo </th>
-					<th>Quantità </th>
-					<th>Prezzo </th>
-					<th>IVA </th>
-					<th>Immagine </th>
-				</tr>
-				<% for(OrdineCopia o : dettagli) {%>
-				<tr class="corpo-tabella">
-					<td><%=o.getTitoloVideogioco() %></td>
-					<td><%=o.getQuantità() %></td>
-					<td><%=o.getPrezzoTotale()%> </td>
-					<td><%=o.getPercIva() %> </td>
-					<td><img src="./getFoto?titolo=<%=o.getTitoloVideogioco()%>" alt="immagine del videogioco non trovata" width="500px"> </td>
-					<%} %>
-			</table>
-			</div>
+<jsp:include page="../header.jsp"/>
+<%
+    ClienteBean cliente = (ClienteBean) request.getAttribute("Cliente");
+    AcquistoBean ordine = (AcquistoBean) request.getAttribute("Ordine"); 
+    ArrayList <OrdineCopia> dettagli = (ArrayList <OrdineCopia>) request.getAttribute("DettagliOrdine");
+    if (ordine == null || dettagli == null) {
+        response.sendRedirect(request.getServletContext()+"./dettagliOrdine");
+    }
+%>
+<body class="fattura">    
+    <p>
+        <div class="titolo">
+            <div class="numero">Fattura Numero: <%=ordine.getnFattura() %></div>
+            <div class="data">Data: <%=ordine.getdataAcquito()%></div>
+        </div>
+        
+        <div class="destinatario">
+            <h3> Gentile <%=cliente.getNome()%> </h3>
+            <p>Grazie per il suo ordine. Le verrà consegnato a <%=ordine.getVia() %>, <%=ordine.getCitta() %>. <br>Cordiali saluti, il team di GDB-Games.</p>
+        </div>
+        
+        <div class="intestazione">
+            <b>SPESA TOTALE:</b> <%=ordine.getPrezzoTotale()%>&euro; <br>
+            <b>TOTALE ARTICOLI:</b> <%= dettagli.stream().mapToInt(OrdineCopia::getQuantità).sum()%>
+        </div>
+        <div class="corpo">
+            <table class="dettagli-prodotti">
+                <tr class="titoli-tabella">
+                    <th>Immagine</th>
+                    <th>Titolo</th>
+                    <th>Console</th>
+                    <th>Quantità</th>
+                    <th>Prezzo C.I.</th>
+                </tr>
+                <% for(OrdineCopia o : dettagli) { %>
+                <tr class="corpo-tabella">
+                    <td id="riga-img"><img src="../getFoto?titolo=<%=o.getTitoloVideogioco()%>" alt="immagine del videogioco non trovata" class="immagine"></td>
+                    <td><%=o.getTitoloVideogioco() %></td>
+                    <td><%=o.getNomeConsole() %></td>
+                    <td><%=o.getQuantità() %></td>
+                    <td><%=o.getPrezzoTotale()%>&euro;</td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+        
+    <%@include file="../footer.jsp" %>
 </body>
 </html>
