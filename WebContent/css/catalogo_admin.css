@@ -1,0 +1,66 @@
+        body {
+            background-color: black;
+            color: white;
+            overflow-y: auto;
+        }
+        .griglia {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .prodotto {
+         	padding-top: 5%; 
+    		padding-bottom: 5%;
+        	border: 3px solid white;
+            width: 30%;
+            margin-bottom: 10%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .prodotto img {
+            width: 55%; 
+            height: auto;
+            display: block;
+            margin: 0 auto; 
+            transform: translateY(-10px); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            
+        }
+        .prodotto img:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.5); 
+        }
+        .prodotto h2 {
+		line-height: 1em;
+		font-size: 2em;
+        }
+        .prodotto p {
+        line-height: 1em;
+        font-size: 1.3em;
+        }
+        .prodotto h4 {
+        font-size: 1.4em;
+        }
+    .button {
+    	width: 60%;
+    	background-color: #800080; 
+    	border-radius: 12px;
+    	padding: 10px 25px;
+    	text-align: center;
+    	display: inline-block;
+    	font-size: 16px;
+    	margin: 4px 2px;
+    	color: white;
+    }
+    .button:hover {
+    	background-color: #a64ca6;
+  	}
+        
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+    		 .prodotto {
+                width: 45%; 
+            }
+            .fine {
+            	margin-top: 25%;
+            }
+    	}

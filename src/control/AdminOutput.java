@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AcquistoDAO;
+import model.OrdineCopia;
+import model.ProdottiDAO;
 import model.beans.AcquistoBean;
 
 public class AdminOutput extends HttpServlet {
@@ -21,6 +23,14 @@ public class AdminOutput extends HttpServlet {
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList <AcquistoBean> ordini = new ArrayList <>();
+		ArrayList <OrdineCopia> prodotti = new ArrayList <> ();
+		ProdottiDAO pdao = new ProdottiDAO();
+		try {
+			prodotti = pdao.getProdotti();
+			request.setAttribute("prodotti", prodotti);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 			AcquistoDAO adao = new AcquistoDAO();
 			try {
 			String inizio = request.getParameter("inizio");

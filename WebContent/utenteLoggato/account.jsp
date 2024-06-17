@@ -27,7 +27,7 @@
      <%
      	}
      %>
-
+		
 		<h2> Benvenuto <%=cliente.getNome()%></h2>
 		<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
 		<button>Modifica i tuoi dati</button>

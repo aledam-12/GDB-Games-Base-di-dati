@@ -17,15 +17,17 @@
 						<label for="email"> Email </label>
 						<input type="email" name="email-cliente" placeholder="example@mail.com">
 						<label for="data inizio"> Data Inizio* </label>
-						<input type="date" name="inizio" required>
+						<input type="date" name="inizio" id="dataInzio" required>
 						<label for="data fine"> Data fine* </label>
-						<input type="date" name="fine" required>
+						<input type="date" name="fine" id="dataFine" required>
 						<input type="submit" value="cerca">
 				</form>
 				<button onclick='window.location.href="../admin/adminCheck"'>Visualizza tutti</button>
 			</div>
 		<h3>Visualizza ordini</h3>
 		<%@ include file = "visualizza ordini.jsp"%>
+		<h3>Modifica il catalogo</h3>
+		<%@ include file="visualizza prodotti.jsp" %>
 		<%@ include file="../footer.jsp"%>
 	</body>	
 </html>
