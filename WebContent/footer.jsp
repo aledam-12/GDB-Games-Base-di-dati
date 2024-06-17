@@ -9,7 +9,7 @@
         <div class="contatto">
              <h3><b>Contattaci:</b></h3>
              <ul>
-                <li>Indirizzo: Universit√† degli studi di Salerno, Italia.</li>
+                <li>Indirizzo: Universit&agrave;† degli studi di Salerno, Italia.</li>
                 <li>Email:
                     <ul class="email">
                         <li>a.basso23@studenti.unisa.it</li>
