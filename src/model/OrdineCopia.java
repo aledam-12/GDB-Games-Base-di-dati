@@ -34,8 +34,7 @@ public void setQuantità (int q) {
 	setPercIva(a.getPercIva());
 	}
 	public float getPrezzoTotale() {
-		float iva = this.getPercIva()/100 * this.getPrezzo();
-		return (this.getPrezzo()+iva)*quantità;
+		return this.getPrezzo() * this.quantità;
 	}
     @Override
     public boolean equals(Object b) {		

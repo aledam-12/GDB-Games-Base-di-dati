@@ -32,7 +32,6 @@ public class AdminInput extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String type = request.getParameter("type");
 	if (type.equals("copia")) {
-		System.out.println(request.getParameter("prezzo"));
 		CopiaBean copia = new CopiaBean();
 		copia.setPercIva(Float.parseFloat(request.getParameter("iva")));
 		copia.setNomeConsole(request.getParameter("console"));

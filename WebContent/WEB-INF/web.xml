@@ -10,6 +10,14 @@
   </welcome-file-list>
   
   <!-- Mappatura delle Servlet -->
+  	<servlet>
+  		<servlet-name>AdminUpdate</servlet-name>
+  		<servlet-class>control.AdminUpdate</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminUpdate</servlet-name>
+		<url-pattern>/admin/adminUpdate</url-pattern>
+	</servlet-mapping>  
     <servlet>
     	<servlet-name>controlloCatalogo</servlet-name>
     	<servlet-class>control.ControlloCatalogo</servlet-class>

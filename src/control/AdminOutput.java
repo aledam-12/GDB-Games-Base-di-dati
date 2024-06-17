@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.AcquistoDAO;
 import model.OrdineCopia;
 import model.ProdottiDAO;
+import model.VideogiocoDAO;
 import model.beans.AcquistoBean;
+import model.beans.VideogiocoBean;
 
 public class AdminOutput extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,10 +26,14 @@ public class AdminOutput extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList <AcquistoBean> ordini = new ArrayList <>();
 		ArrayList <OrdineCopia> prodotti = new ArrayList <> ();
+		ArrayList <VideogiocoBean> videogiochi = new ArrayList <>();
 		ProdottiDAO pdao = new ProdottiDAO();
+		VideogiocoDAO vdao = new VideogiocoDAO();
 		try {
+			videogiochi = vdao.leggiTutti();
 			prodotti = pdao.getProdotti();
 			request.setAttribute("prodotti", prodotti);
+			request.setAttribute("videogiochi", videogiochi);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}

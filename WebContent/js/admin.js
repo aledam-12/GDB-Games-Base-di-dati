@@ -18,3 +18,24 @@ function EliminaProdotti (a, id) {
 		temp.style.display = "none";
 	}
 }
+
+function ModificaProdotti (a, id) {
+	let temp = document.getElementById ("Modifica "+id);
+	if (a) {
+		temp.style.display = "block";
+	}
+	else  {
+		temp.style.display = "none";
+	}
+	
+}
+function ModificaVideogioco (a, id) {
+	let temp = document.getElementById ("ModificaVideogioco "+id);
+	if (a) {
+		temp.style.display = "block";
+	}
+	else {
+		temp.style.display = "none";
+	}
+		
+}

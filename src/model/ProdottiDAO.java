@@ -347,28 +347,7 @@ public class ProdottiDAO implements Prodotti
 
 
      
-    public synchronized void modificaprod(String m, int p) throws SQLException
-        {
-            Connection c = null;
-	        PreparedStatement ps = null;
-            String query = "UPDATE 'gdbgames'.'videogioco' SET pegi = ? WHERE titolo = ?";
-            try{
-                c = ConnectionPool.getConnection();
-                ps = c.prepareStatement(query);
-                ps.setInt(1, p);
-                ps.setString(2, m);
-                }finally {
-			                try {
-				                if (ps != null)
-                                    {
-					                    ps.close();
-                                    }
-			                    } finally {
-				                        ConnectionPool.rilasciaConnessione(c);
-			                              }
-		                  }
 
-        }
     public synchronized void modificaprod(String m, String d) throws SQLException
         {
             Connection c = null;
@@ -379,6 +358,7 @@ public class ProdottiDAO implements Prodotti
                 preparedStatement = c.prepareStatement(query);
                 preparedStatement.setString(1, d);
                 preparedStatement.setString(2, m);
+                preparedStatement.executeUpdate();
                 }finally {
 			                try {
 				                if (preparedStatement != null)
@@ -391,29 +371,6 @@ public class ProdottiDAO implements Prodotti
 		                  }
 
         } 
-    public synchronized void modificaprod(String m, String d, int p) throws SQLException
-        {
-            Connection c = null;
-	        PreparedStatement preparedStatement = null;
-            String query = "UPDATE 'gdbgames'.'videogioco' SET pegi = ?, descrizione = ? WHERE titolo = ?";
-            try{
-                c = ConnectionPool.getConnection();
-                preparedStatement = c.prepareStatement(query);
-                preparedStatement.setInt(1, p);
-                preparedStatement.setString(2, d);
-                preparedStatement.setString(3, m);
-                }finally {
-			                try {
-				                if (preparedStatement != null)
-                                    {
-					                    preparedStatement.close();
-                                    }
-			                    } finally {
-				                        ConnectionPool.rilasciaConnessione(c);
-			                              }
-		                  }
-
-        }
 
 
 
@@ -464,16 +421,21 @@ public class ProdottiDAO implements Prodotti
 
         }
      
-    public synchronized void modificaCopia(String m, float pre) throws SQLException
+    public synchronized void modificaCopia(CopiaBean copia, String newConsole, float newPrezzo) throws SQLException
         {
             Connection c = null;
 	        PreparedStatement preparedStatement = null;
-            String query = "UPDATE 'gdbgames'.'copia' SET prezzo = ? WHERE titoloVideogioco = ?";
+            String query = "UPDATE gdbgames.copia SET prezzo = ?, nomeConsole = ? WHERE titoloVideogioco = ? AND nomeConsole = ? AND stato = 0";
             try{
                 c = ConnectionPool.getConnection();
                 preparedStatement = c.prepareStatement(query);
-                preparedStatement.setFloat(1, pre);
-                preparedStatement.setString(2, m);
+                preparedStatement.setFloat(1, newPrezzo);
+                preparedStatement.setString(2, newConsole);
+                preparedStatement.setString(3, copia.getTitoloVideogioco());
+                preparedStatement.setString(4, copia.getNomeConsole());
+                System.out.println(preparedStatement);
+                preparedStatement.executeUpdate();
+                
                 }finally {
 			                try {
 				                if (preparedStatement != null)
