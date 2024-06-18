@@ -33,7 +33,7 @@ public class ReclamoDAO
                          }
         }
 
-    public synchronized ArrayList<ReclamoBean> leggiReclami (int num) throws SQLException
+    public synchronized ArrayList<ReclamoBean> leggiReclami () throws SQLException
         {
 		    String sql = "SELECT * FROM reclamo";
 		    ArrayList <ReclamoBean> r = new ArrayList <>();

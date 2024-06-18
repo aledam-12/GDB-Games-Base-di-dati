@@ -1,11 +1,9 @@
 package control;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.ProdottiDAO;
 import model.VideogiocoDAO;
 import model.beans.CopiaBean;
-import model.beans.VideogiocoBean;
 
 
 public class AdminUpdate extends HttpServlet {
@@ -37,7 +34,6 @@ public class AdminUpdate extends HttpServlet {
 			try {
 				pdao.modificaCopia(copia, request.getParameter("console"), Float.parseFloat(request.getParameter("prezzo")));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

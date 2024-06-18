@@ -29,7 +29,6 @@
      %>
 		
 		<h2> Benvenuto <%=cliente.getNome()%></h2>
-		<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
 		<button>Modifica i tuoi dati</button>
 		<h3>I tuoi ordini </h3>
 			<table>
@@ -51,7 +50,9 @@
 				</tr>	
 				<%} }%>
 			</table>
-		
+			<div class="logout">
+				<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
+			</div>
 	<%@include file="/footer.jsp" %>
 </body>
 </html>

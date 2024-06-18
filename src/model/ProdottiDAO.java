@@ -255,19 +255,19 @@ public class ProdottiDAO implements Prodotti
 
 
      
-    public synchronized boolean cancellacopia(String titolovideogioco) throws SQLException
+    public synchronized void cancellaCopia(CopiaBean copia) throws SQLException
         {
                     Connection c = null;
                     PreparedStatement ps = null;
-                    int risultato = 0;
-                    String query ="DELETE FROM copia WHERE stato = 0 && titolovideogioco = ? ";
+                    String query ="DELETE FROM copia WHERE stato = 0 && codiceCopia = ?";
                             c = ConnectionPool.getConnection();
                             ps = c.prepareStatement(query);
-                            ps.setString(1, titolovideogioco);
-                            risultato = ps.executeUpdate();      
+                            ps.setInt(1, copia.getCodiceCopia());
+                            System.out.println(ps);
+                            ps.executeUpdate();      
+                            c.commit();
                             ps.close();
                             ConnectionPool.rilasciaConnessione(c);
-                            return risultato != 0;
         }
     
 

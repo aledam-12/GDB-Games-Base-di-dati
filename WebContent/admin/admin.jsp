@@ -28,6 +28,7 @@
 		<%@ include file = "visualizza ordini.jsp"%>
 		<h3>Modifica il catalogo</h3>
 		<%@ include file="visualizza prodotti.jsp" %>
+		<%@ include file = "visualizza_reclami.jsp" %>
 		<%@ include file="../footer.jsp"%>
 	</body>	
 </html>

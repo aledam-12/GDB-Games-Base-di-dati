@@ -38,9 +38,12 @@
             <p> Quantit&agrave;: <b><%=prodotto.getQuantità()%></b> </p>
             <button class="button" onclick = "EliminaProdotti(true, <%=i%>)">Elimina</button>
             <div class = "elimina" style="display:none" id ="Elimina <%=i%>">
-           	<form method = "post">
+           	<form method = "post" action = "./adminDelete">
            		<label for="quantità"> Quantit&agrave;</label>
-           		<input type="number" min="1">
+           		<input type="number" min="1" name = "quantita">
+           		<input type="hidden" id="titolo" name="titolo" value = "<%=prodotto.getTitoloVideogioco()%>">
+           		<input type="hidden" id="prezzo" name="prezzo" value = "<%=prodotto.getPrezzo()%>">
+           		<input type="hidden" id="console" name="console" value = "<%=prodotto.getNomeConsole() %>">
            		<button class="button" id = "BottoneElimina <%=i%>" >Elimina</button>
            		<div class="conferma" id = "Conferma <%=i%>" style="display:none"> <p class="conferma"> Sei sicuro di voler eliminare? </p>
            			<input type="submit" value="SI">
@@ -68,7 +71,7 @@
     	<div class = "griglia">
     	<%  if(videogiochi != null && videogiochi.size() != 0) {
     		int i = 1;
-    	for (VideogiocoBean videogioco : videogiochi) { %>
+    		for (VideogiocoBean videogioco : videogiochi) { %>
     		<div class = "prodotto">
     		<h2><%= videogioco.getTitolo() %></h2>
     		<p>Pegi: <%=videogioco.getPegi() %> <br> </p>

@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.AcquistoDAO;
 import model.OrdineCopia;
 import model.ProdottiDAO;
+import model.ReclamoDAO;
 import model.VideogiocoDAO;
 import model.beans.AcquistoBean;
+import model.beans.ReclamoBean;
 import model.beans.VideogiocoBean;
 
 public class AdminOutput extends HttpServlet {
@@ -27,11 +29,15 @@ public class AdminOutput extends HttpServlet {
 		ArrayList <AcquistoBean> ordini = new ArrayList <>();
 		ArrayList <OrdineCopia> prodotti = new ArrayList <> ();
 		ArrayList <VideogiocoBean> videogiochi = new ArrayList <>();
+		ArrayList <ReclamoBean> reclami = new ArrayList <>();
 		ProdottiDAO pdao = new ProdottiDAO();
 		VideogiocoDAO vdao = new VideogiocoDAO();
+		ReclamoDAO rdao = new ReclamoDAO();
 		try {
+			reclami = rdao.leggiReclami();
 			videogiochi = vdao.leggiTutti();
 			prodotti = pdao.getProdotti();
+			request.setAttribute("reclami", reclami);
 			request.setAttribute("prodotti", prodotti);
 			request.setAttribute("videogiochi", videogiochi);
 		} catch (SQLException e1) {
