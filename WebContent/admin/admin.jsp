@@ -36,6 +36,17 @@
 		<%@ include file = "visualizza ordini.jsp"%>
 		<h2>Modifiche del catalogo:</h2>
 		<%@ include file="visualizza prodotti.jsp" %>
+			<h2 class = "h"> Ricerca clienti: </h2>
+			<div class = "clienti">
+				<form method="GET" action = "../admin/adminCheck">
+						<div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
+						<label for="email"> Email: <span class="required">*</span></label>
+						<input type="email" name="email-utente" placeholder="example@mail.com"> <br>
+						<input type="submit" value = "Cerca">
+				</form>
+				</div>
+				<h2>Visualizzazione clienti:</h2>
+		<%@ include file = "visualizza clienti.jsp" %>
 		<%@ include file = "visualizza_reclami.jsp" %>
 		<%@ include file="../footer.jsp"%>
 	</body>	

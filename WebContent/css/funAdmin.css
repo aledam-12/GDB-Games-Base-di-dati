@@ -1,5 +1,5 @@
 
-.ordini {
+.ordini, .clienti{
     width: 30%;
     border: 1px solid white;
     padding: 20px;
@@ -21,7 +21,7 @@
     margin-bottom: 20px;
    }
   
-.ordini label {
+.ordini label, .clienti label {
     display: block;
     width: 100%;
     margin-top: 10px;
@@ -36,7 +36,10 @@
 
 .ordini input[type="submit"],
 .ordini input[type="reset"],
-.ordini button {
+.ordini button, 
+.clienti input[type="submit"],
+.clienti input[type="reset"],
+.clienti button {
     background-color: #800080;
     color: white;
     padding: 8px 16px;
@@ -48,7 +51,11 @@
   }
 .ordini input[type="submit"]:hover,
 .ordini input[type="reset"]:hover,
-.ordini button:hover {
+.ordini button:hover, 
+.clienti input[type="submit"]:hover,
+.clienti input[type="reset"]:hover,
+.clienti button:hover
+ {
 	background-color: #a64ca6;
 }
 

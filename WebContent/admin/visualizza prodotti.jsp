@@ -68,7 +68,7 @@
     	</div>
     	<% i++;}} %>
     </div>
-    <h2>Modefiche dettagli del prodotto:</h2>
+    <h2>Modifica dettagli del prodotto:</h2>
     	<div class = "dett">
     	<%  if(videogiochi != null && videogiochi.size() != 0) {
     		int i = 1;
@@ -81,7 +81,7 @@
     			<div class = "e" id = "ModificaVideogioco <%=i%>" style="display:none">
     				<form method = "post" action = "./adminUpdate?type=videogioco">
     					<label class = "l" for="descrizione">Descrizione(Campo vuoto per non modificarlo):</label>
-  						<br><textarea id="descrizione" name="descrizione" required></textarea>
+  						<br><textarea id="descrizione" name="descrizione"></textarea>
  	 					<br><label for="pegi">Pegi (3-18): <span class="required">*</span></label>
  	 					<input type = "number" name = "pegi" id="pegi" max="18" min ="3"  value = "<%=videogioco.getPegi()%>">
  	 					<input type = "hidden" value = "<%=videogioco.getTitolo() %>" name="titolo">

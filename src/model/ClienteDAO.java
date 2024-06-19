@@ -1,9 +1,43 @@
 package model;
 import model.beans.ClienteBean;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ClienteDAO implements Cliente
-{
+{	public synchronized ArrayList <ClienteBean> leggiTutti () throws SQLException {
+	ArrayList <ClienteBean> clienti = new ArrayList<>();
+	String SQL = "SELECT * FROM cliente";
+	Connection conn = null;
+	PreparedStatement ps = null;
+	try {
+		conn = ConnectionPool.getConnection();
+		ps = conn.prepareStatement(SQL);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			ClienteBean temp = new ClienteBean();
+			temp.setEmail(rs.getString("email"));
+			temp.setNome(rs.getString("nome"));
+			temp.setCognome(rs.getString("cognome"));
+			temp.setCitta(rs.getString("città"));
+			temp.setCap(rs.getInt("cap"));
+			temp.setVia(rs.getString("via"));
+			temp.setCivico(rs.getInt("civico"));
+			temp.setProvincia(rs.getString("provincia"));
+			temp.setStato(rs.getString("stato"));
+			clienti.add(temp);
+		}
+	}
+	finally {
+        try {
+            if (ps != null)
+                {
+                    ps.close();
+                }
+        } finally {
+                    ConnectionPool.rilasciaConnessione(conn);
+                  }
+ }	return clienti;
+	}
     public synchronized void inserisciCliente(ClienteBean c) throws SQLException
         {
             Connection conn = null;
@@ -195,3 +229,4 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
     	return status;
     }
 }
+

@@ -26,7 +26,7 @@ public class ConnectionPool
             String port = "3306";
             String db = "gdbgames";
             String username = "root";
-            String password = "pw";
+            String password = "Alex2003";
             c = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
             c.setAutoCommit(false); 
             return c; 
