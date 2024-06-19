@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type = "text/css" href="${pageContext.request.contextPath}/css/visualReclamo.css">
 </head>
 <body>
-	<h3> Visualizza reclami </h3>
+	<h2> Visualizza reclami: </h2>
 	<% ArrayList<ReclamoBean> reclami = (ArrayList <ReclamoBean>)request.getAttribute("reclami");	
 	if (reclami == null) {
 		response.sendRedirect("./adminCheck");
@@ -17,11 +18,13 @@
 	<%if (reclami.size()==0 && reclami != null) {%>
 		<p>Non &egrave; presente nessun reclamo!</p>
 	<%return;} %>
-	<div class="container reclamo">
+	<div class="container-reclamo">
 	<% for (ReclamoBean reclamo : reclami) {%>
-	 <div class="reclamo">	
-	 <h4><%=reclamo.getTitolo() %></h4> <p>Utente: <%=reclamo.getEmailCliente() %> </p> <br>
-		<p> <%=reclamo.getContenuto() %></p>
+	<div class="reclamo">	
+	<h3>-Mittente:</h3> <p><br> <%=reclamo.getEmailCliente() %> </p> <br>
+	<h3>-Tipologia di problema: </h3>
+	<p><%=reclamo.getTitolo() %></p>
+	<h3>-Descrizione del problema:</h3><p> <br> <%=reclamo.getContenuto() %></p>
 	</div>
 	<% } %>
 	</div>

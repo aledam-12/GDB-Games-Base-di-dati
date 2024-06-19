@@ -1,0 +1,68 @@
+
+.ordini {
+    width: 30%;
+    border: 1px solid white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 1.2em;
+  	margin: 0% 30% 0% 30%;
+  }
+  .h {
+  	margin: 5% 0% 1% 25%;
+  }
+
+.required {
+    color: red;
+  }
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+   }
+  
+.ordini label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+  
+ .ordini input[type="date"] {
+	width: 120px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.ordini input[type="submit"],
+.ordini input[type="reset"],
+.ordini button {
+    background-color: #800080;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1em;
+    width: auto;
+  }
+.ordini input[type="submit"]:hover,
+.ordini input[type="reset"]:hover,
+.ordini button:hover {
+	background-color: #a64ca6;
+}
+
+.titoli {
+            display: flex;
+            justify-content: space-between;
+        }
+ .titoli h2 {
+ 	margin-right: 27.6%;
+ }
+.inserisci {
+	display: flex;
+}
+.inserisci .copia {
+	width: 95%;
+	margin-left: 30%;
+}

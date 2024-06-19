@@ -4,29 +4,37 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
+		<link rel ="stylesheet" type = "text/css" href = "${pageContext.request.contextPath}/css/funAdmin.css" >
 		<title>GDB-Games</title>
 	</head>
 	<body>
 		<jsp:include page="../header.jsp" />
-		<h3>inserisci nuovi prodotti</h3>
-		<%@ include file = "inserire_copia.html"%> <br>
-		<%@ include file = "inserire_videogiochi.html"%>
-				<h3>Cerca ordini</h3>
-				<div class = "form-container">
+		<div class= "titoli">
+			<h2>inserisci nuovi prodotti:</h2>
+			<h2>inserisci copia del prodotto:</h2>
+		</div>
+		<div class="inserisci">
+			<%@ include file = "inserire_videogiochi.html"%><br>
+			<%@ include file = "inserire_copia.html"%> <br>
+		</div>
+				<h2 class = "h">Ricerca ordini:</h2>
+				<div class = "ordini">
 				<form method="GET" action = "../admin/adminCheck">
-						<label for="email"> Email </label>
+						<div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
+						<label for="email"> Email: <span class="required">*</span></label>
 						<input type="email" name="email-cliente" placeholder="example@mail.com">
-						<label for="data inizio"> Data Inizio* </label>
+						<label for="data inizio"> Data Inizio: <span class="required">*</span></label>
 						<input type="date" name="inizio" id="dataInzio" required>
-						<label for="data fine"> Data fine* </label>
+						<label for="data fine"> Data fine: <span class="required">*</span></label>
 						<input type="date" name="fine" id="dataFine" required>
-						<input type="submit" value="cerca">
+						<input type="submit" value="Cerca">
+						<input type="reset" value="Cancella">
+						<button onclick='window.location.href="../admin/adminCheck"'>Tutti gli ordini</button>
 				</form>
-				<button onclick='window.location.href="../admin/adminCheck"'>Visualizza tutti</button>
 			</div>
-		<h3>Visualizza ordini</h3>
+		<h2>Visualizzazione ordini:</h2>
 		<%@ include file = "visualizza ordini.jsp"%>
-		<h3>Modifica il catalogo</h3>
+		<h2>Modifiche del catalogo:</h2>
 		<%@ include file="visualizza prodotti.jsp" %>
 		<%@ include file = "visualizza_reclami.jsp" %>
 		<%@ include file="../footer.jsp"%>

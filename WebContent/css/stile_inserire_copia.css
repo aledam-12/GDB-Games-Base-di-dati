@@ -1,17 +1,16 @@
 
-form {
-    width: 80%;
-    border: 1px solid #000;
+.copia {
+    width: 30%;
+    border: 1px solid white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     font-size: 1.2em;
   }
-.form-container {
+.copia {
 	display: flex;
-	margin: 5% 30% 5% 30%;
-	align-items: center;
-	justify-content: center;
+	margin-left: 0;
+	margin-bottom: 2%;
 }
 .required {
     color: red;
@@ -22,14 +21,22 @@ form {
     margin-bottom: 20px;
    }
   
-label, input, select {
+.copia label {
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
+  
+ .copia input[type="number"] {
+	width: 90px;
+	margin-bottom: 10px;
+	display: block;
+}
 
-input[type="submit"] {
-    background-color: #8000FF;
+.copia input[type="submit"],
+.copia input[type="reset"] {
+    background-color: #800080;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -38,19 +45,57 @@ input[type="submit"] {
     font-size: 1em;
     width: 120px;
   }
+.copia input[type="submit"]:hover,
+.copia input[type="reset"]:hover {
+	background-color: #a64ca6;
+}
   
-input:required:invalid {
-    border: 2px solid red;
+.videogioco {
+    width: 35%;
+    border: 1px solid white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 1.2em;
   }
-
+.videogioco {
+	display: flex;
+	margin-left: 0;
+	margin-bottom: 2%;
+  }
+  .videogioco label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
   
-input:required:valid {
-    border: 2px solid #00FF00;
-  }
-  select:required:invalid {
-    border: 2px solid red;
-  }
+ .videogioco input[type="number"] {
+	width: 90px;
+	margin-bottom: 10px;
+	display: block;
+}
 
-  select:required:valid {
-    border: 2px solid #00FF00;
+.videogioco input[type="submit"],
+.videogioco input[type="reset"] {
+    background-color: #800080;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 120px;
   }
+  .file {
+  	margin-top: 10px;
+  	font-size: 1em;
+  }
+  .videogioco textarea {
+  	width: 100%;
+  	height: 180px;
+  }
+  .videogioco input[type="submit"]:hover,
+	.videogioco input[type="reset"]:hover {
+	background-color: #a64ca6;
+}
