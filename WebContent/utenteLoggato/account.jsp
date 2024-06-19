@@ -4,7 +4,7 @@
 <html>
 <head>
 	<title>GDB-Games</title>
-	<link rel="stylesheet" href="account.css">
+	<link rel ="stylesheet" type = "text/css" href = "${pageContext.request.contextPath}/css/account.css" >
 </head>
 <body>
 	  <%

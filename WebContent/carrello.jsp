@@ -8,13 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>GDB Games</title>
-<link rel="stylesheet" href="css/carello.css">
+<link rel ="stylesheet" type = "text/css" href = "${pageContext.request.contextPath}/css/carello.css" >
 </head>
 <body>
 <%
     ArrayList<OrdineCopia> prodotti = (ArrayList<OrdineCopia>)session.getAttribute("prodottiCarrello");
-	double totale = prodotti.stream().mapToDouble(OrdineCopia::getPrezzoTotale).sum();
-	String totaleFormattato = String.format(Locale.US, "%.2f", totale);
 	if (prodotti == null) {
         response.sendRedirect("./controlloCarrello?action=view");    
         return;
@@ -28,7 +26,10 @@
     </div>
 <%
     } else {
+    	double totale = prodotti.stream().mapToDouble(OrdineCopia::getPrezzoTotale).sum();
+    	String totaleFormattato = String.format(Locale.US, "%.2f", totale);
 %>
+
 <div class="totale-container">
     <h2>Totale da pagare:</h2>
     <p>

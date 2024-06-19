@@ -22,12 +22,13 @@ body {
         padding: 25px; 
     }
     .totale-container h2 {
-        margin-top: -7%;
+        margin-top: -5%;
     }
     .prodotti-container {
         width: 65%;
         margin-left: 30px;
-        padding: 20px;
+        padding: 25px;
+        margin-top: 3px;
     }
     .prodotto {
         border: 3px solid white;
