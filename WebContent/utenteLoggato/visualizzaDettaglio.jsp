@@ -27,7 +27,7 @@
         </div>
         
         <div class="destinatario">
-            <h3> Gentile <%=cliente.getNome()%> </h3>
+            <h3> Gentile <%=cliente.getNome()%>, </h3>
             <p>Grazie per il suo ordine. Le verrà consegnato a <%=ordine.getVia() %>, <%=ordine.getCitta() %>. <br>Cordiali saluti, il team di GDB-Games.</p>
         </div>
         

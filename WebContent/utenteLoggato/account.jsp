@@ -9,7 +9,11 @@
 <body>
 	  <%
 	  	ClienteBean cliente = (ClienteBean) request.getSession().getAttribute("cliente"); 
-	  	  	  AcquistoDAO adao = new AcquistoDAO();
+	  	boolean isAdmin = false;
+      	if (cliente != null && "admin".equalsIgnoreCase(cliente.getStato())) {
+          	isAdmin = true;
+      	}
+	  		  AcquistoDAO adao = new AcquistoDAO();
 	  	  	  ArrayList <AcquistoBean> ordini = (ArrayList <AcquistoBean>)adao.leggiPerEmail(cliente.getEmail());
 	  %>  
 	<jsp:include page="../header.jsp"/>
@@ -28,9 +32,24 @@
      	}
      %>
 		
-		<h2> Benvenuto <%=cliente.getNome()%></h2>
-		<button>Modifica i tuoi dati</button>
-		<h3>I tuoi ordini </h3>
+		<h2> Benvenuto <%=cliente.getNome()%>!</h2>
+		<div class="logout">
+				<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
+		</div>
+		<button class= "mod">Modifica i tuoi dati</button>
+		
+		<%
+    		if (isAdmin) {
+		%>
+    	<div class="admin-section">
+        <button><a href="${pageContext.request.contextPath}\admin\admin.jsp">Funzionalità amministratore</a></button>
+    	</div>
+		<%
+    		}
+		%>
+		
+		
+		<h3>I tuoi ordini: </h3>
 			<table>
 				<tr>
 					<td>N. Fattura</td>
@@ -50,9 +69,6 @@
 				</tr>	
 				<%} }%>
 			</table>
-			<div class="logout">
-				<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
-			</div>
 	<%@include file="/footer.jsp" %>
 </body>
 </html>

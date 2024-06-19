@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList,model.OrdineCopia" %>
+<%@ page import="java.util.Locale"%>
 <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -12,13 +13,16 @@
 <body>
 <%
     ArrayList<OrdineCopia> prodotti = (ArrayList<OrdineCopia>)session.getAttribute("prodottiCarrello");
-    if (prodotti == null) {
+	double totale = prodotti.stream().mapToDouble(OrdineCopia::getPrezzoTotale).sum();
+	String totaleFormattato = String.format(Locale.US, "%.2f", totale);
+	if (prodotti == null) {
         response.sendRedirect("./controlloCarrello?action=view");    
         return;
     }    
     if (prodotti.size() == 0) {
 %>    
     <div class="scritta">
+    	<img src="foto\icon-cart.svg" alt ="carello">
         <h2>Carrello vuoto!!</h2>
         <button><a href="catalogo.jsp">Continua ad acquistare!!</a></button>
     </div>
@@ -40,7 +44,7 @@
         </div>
     <% } %>
     <br>
-    <h3> Totale: <%=prodotti.stream().mapToDouble(OrdineCopia::getPrezzoTotale).sum()%> &euro;</h3>
+    <h3> Totale: <%= totaleFormattato %> &euro;</h3>
     </div>
     <br>
     <button><a href="utenteLoggato/FinalizzaAcquisto.jsp">Acquista</a></button>
@@ -93,6 +97,6 @@
 <%
     }
 %>
+<div class ="end"><%@include file="footer.jsp" %></div>
 </body>
 </html>
-<%@include file="footer.jsp" %>

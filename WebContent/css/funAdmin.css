@@ -1,5 +1,5 @@
 
-.ordini, .clienti{
+.ordini, .cl{
     width: 30%;
     border: 1px solid white;
     padding: 20px;
@@ -7,6 +7,9 @@
     border-radius: 5px;
     font-size: 1.2em;
   	margin: 0% 30% 0% 30%;
+  }
+  button {
+  	border: none;
   }
   .h {
   	margin: 5% 0% 1% 25%;
@@ -21,7 +24,7 @@
     margin-bottom: 20px;
    }
   
-.ordini label, .clienti label {
+.ordini label, .cl label {
     display: block;
     width: 100%;
     margin-top: 10px;
@@ -37,9 +40,9 @@
 .ordini input[type="submit"],
 .ordini input[type="reset"],
 .ordini button, 
-.clienti input[type="submit"],
-.clienti input[type="reset"],
-.clienti button {
+.cl input[type="submit"],
+.cl input[type="reset"],
+.cl button {
     background-color: #800080;
     color: white;
     padding: 8px 16px;
@@ -52,9 +55,9 @@
 .ordini input[type="submit"]:hover,
 .ordini input[type="reset"]:hover,
 .ordini button:hover, 
-.clienti input[type="submit"]:hover,
-.clienti input[type="reset"]:hover,
-.clienti button:hover
+.cl input[type="submit"]:hover,
+.cl input[type="reset"]:hover,
+.cl button:hover
  {
 	background-color: #a64ca6;
 }

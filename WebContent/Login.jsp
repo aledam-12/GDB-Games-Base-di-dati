@@ -129,9 +129,10 @@ function changeForm(str) {
 		<form action="./Login" method="post">
 			  <fieldset name="group-user">
 			  <legend><h2><b>Accesso</b></h2></legend>
-				  <label for="username">Username:</label> <br>
+			  	  <div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
+				  <label for="username">Username: <span class="required">*</span></label> <br>
 				  <input type="text" name="username" id="username" required> <br>
-				  <label for="password">Password:</label> <br> 
+				  <label for="password">Password: <span class="required">*</span></label> <br> 
 				  <input type="password" name="password" id="password" required> <br>
 			  </fieldset>
 			<input type="submit" class="button" value = "Accesso">

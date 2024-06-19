@@ -37,11 +37,11 @@
 		<h2>Modifiche del catalogo:</h2>
 		<%@ include file="visualizza prodotti.jsp" %>
 			<h2 class = "h"> Ricerca clienti: </h2>
-			<div class = "clienti">
+			<div class = "cl">
 				<form method="GET" action = "../admin/adminCheck">
 						<div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
 						<label for="email"> Email: <span class="required">*</span></label>
-						<input type="email" name="email-utente" placeholder="example@mail.com"> <br>
+						<input type="email" name="email-utente" placeholder="example@mail.com"> <br><br>
 						<input type="submit" value = "Cerca">
 				</form>
 				</div>

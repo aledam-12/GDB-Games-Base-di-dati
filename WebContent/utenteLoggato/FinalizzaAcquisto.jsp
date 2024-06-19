@@ -30,6 +30,7 @@
         }
     %>
     <h1>Riepilogo ordine:</h1>
+    <h2 class= "tot">Totale ordine: <%= prezzoTot %> &euro;</h2>
     <table id="checkoutTable">
         <tr>
             <th colspan="3"><h2>Articoli:</h2></th>
@@ -50,28 +51,28 @@
         </tr>
         <% }} %>
     </table>
-    
+    <div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
     <form action="./Checkout" method="post">
         <!-- Indirizzo di Spedizione -->
         <fieldset>
             <legend><h2>Indirizzo di spedizione</h2></legend>
-            <label for="via-spedizione"><h3>Via:</h3></label>
+            <label for="via-spedizione"><h3>Via: <span class="required">*</span></h3></label>
             <input type="text" id="via-spedizione" name="via-spedizione" required>
-            <label for="cap-spedizione"><h3>CAP:</h3></label>
+            <label for="cap-spedizione"><h3>CAP: <span class="required">*</span></h3></label>
             <input type="number" id="cap-spedizione" name="cap-spedizione" required>
-            <label for="citta-spedizione"><h3>Città:</h3></label>
+            <label for="citta-spedizione"><h3>Città: <span class="required">*</span></h3></label>
             <input type="text" id="citta-spedizione" name="citta-spedizione" required>
         </fieldset>
         
         <!-- Metodo di Pagamento -->
         <fieldset>
             <legend><h2>Metodo di pagamento</h2></legend>
-            <label for="numCartaNuova"><h3>Numero carta:</h3></label>
+            <label for="numCartaNuova"><h3>Numero carta: <span class="required">*</span></h3></label>
             <input type="number" id="numCartaNuova" name="numCarta" required><br>
         </fieldset>
         
         
-        <input type="submit" id="finalizza" name="FinalizzaAcquisto" value="Conferma Ordine">
+        <input type="submit" id="finalizza" name="FinalizzaAcquisto" value="Acquista">
     	
     </form>
     <br><br>
