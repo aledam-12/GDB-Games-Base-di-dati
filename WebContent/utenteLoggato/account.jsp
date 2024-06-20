@@ -36,8 +36,31 @@
 		<div class="logout">
 				<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
 		</div>
-		<button class= "mod">Modifica i tuoi dati</button>
-		
+		<button class= "mod" onclick = "ModificaUtente (true)" >Modifica i tuoi dati</button>
+			<div class="form-container" id ="Modifica" style = "display:none">
+				<form action = "./userUpdate" method = "post">
+				<div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
+					<fieldset>
+						<legend><b>Indirizzo per la spedizione</b></legend>
+							<label for="indirizzo">Indirizzo: <span class="required">*</span></label> <br>
+							<input type="text" name="via" value = "<%=cliente.getVia()%>"required> <br>
+							<label for="civico">Numero Civico: <span class="required">*</span></label> <br>
+							<input type="number" name="civico" value = "<%=cliente.getCivico() %>" max = "999" min="1" required> <br>
+							<label for="Città">Città: <span class="required">*</span></label> <br>
+							<input type="text" name="citta" value = "<%=cliente.getCitta() %>" required> <br>
+							<label for="CAP">CAP: <span class="required">*</span></label> <br>
+							<input type="number" name="cap" value = "<%=cliente.getCap() %>" max = "99999" min="0" required> <br>
+							<label for="provincia">Provincia: <span class="required">*</span></label><br>
+							<input type = "text" name="provincia" value = "<%=cliente.getProvincia() %>"><br>
+					</fieldset>
+				<input type = "submit" value = "invia" class = "button">
+				<input type = "reset" class = "button">
+				</form>
+				<button class="mod" onclick = "ModificaUtente (false)">Annulla</button>
+			</div>
+			<script src="${pageContext.request.contextPath}/formValidation.js"></script>
+			<script src="${pageContext.request.contextPath}/js/user.js"></script>
+			<div class="form-not-valid"> </div>
 		<%
     		if (isAdmin) {
 		%>

@@ -7,7 +7,6 @@
     <%@ page import = "model.beans.ClienteBean"%>
 </head>
 <body>
-
 	<% String nomeHeader; 
 	if (session.getAttribute("nomeCliente") != null) {
 	nomeHeader = (String) session.getAttribute("nomeCliente"); }
@@ -22,14 +21,17 @@
         </a>
     </div>
     <div class="destra">
-    	   <select class="console">
+    <form action="./Searchbar" method="post" id="Searchbar">
+    	   <select class="console" name="console" id = "Searchbar Console">
        			 <option value="" disabled selected>console</option>
-       			 <option value="ps4">PS4</option>
-        		 <option value="xbox">Xbox</option>
-        		 <option value="switch">Switch</option>
-        		 <option value="pc">PC</option>
+       			 <option value="Play Station 4">PS4</option>
+        		 <option value="XBOX One">Xbox</option>
+        		 <option value="Nintendo Switch">Switch</option>
+        		 <option value="PC">PC</option>
     	   </select>
-    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco">
+    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco" name="search" id="Searchbar Titolo">
+    	<input type="submit" value = "Cerca">
+    	</form>
         <img src="${pageContext.request.contextPath}/foto/ricerca.png" alt="cerca" class="ricerca">	
     </div>
      <div class="account">
@@ -43,7 +45,7 @@
         	</a>
         
     </div>
-    </div>
     </header>
+    <script src="${pageContext.request.contextPath}/js/Searchbar.js" type="text/javascript"></script>
 </body>
 </html>

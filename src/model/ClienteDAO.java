@@ -108,16 +108,18 @@ public class ClienteDAO implements Cliente
 		return cliente;
 	    }
 
-public synchronized void modifiCliente(String e, String pass) throws SQLException
+public synchronized void modifiCliente(String email, String pass) throws SQLException
         {
             Connection c = null;
 	        PreparedStatement ps = null;
-            String query = "UPDATE 'gdbgames'.'cliente' SET pw = ? WHERE email = ?";
+            String query = "UPDATE gdbgames.cliente SET pw = ? WHERE email = ?";
             try{
                 c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setString(1, pass);
-                ps.setString(2, e);
+                ps.setString(2, email);
+                ps.executeUpdate();
+                c.commit();
                 }finally {
 			                try {
 				                if (ps != null)
@@ -130,17 +132,20 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
 		                  }
         }
 
-    public synchronized void modifiCliente(String e, String v, int c) throws SQLException
+    public synchronized void modifiCliente(String email, String via, int civico) throws SQLException
         {
             Connection conn = null;
             PreparedStatement ps = null;
-            String query = "UPDATE 'gdbgames'.'cliente' SET via = ?, civico = ? WHERE email = ?";
+            String query = "UPDATE gdbgames.cliente SET via = ?, civico = ? WHERE email = ?";
             try{
                 conn = ConnectionPool.getConnection();
                 ps = conn.prepareStatement(query);
-                ps.setString(1, v);
-                ps.setInt(2, c);
-                ps.setString(3, e);
+                ps.setString(1, via);
+                ps.setInt(2, civico);
+                ps.setString(3, email);
+                System.out.println(ps);
+                ps.executeUpdate();
+                conn.commit();
                 }finally {
                             try {
                                     if (ps != null)
@@ -153,18 +158,20 @@ public synchronized void modifiCliente(String e, String pass) throws SQLExceptio
                          }
         }
 
-    public synchronized void modifiCliente(String e, String c, String p, int cap) throws SQLException
+    public synchronized void modifiCliente(String email, String città, String provincia, int cap) throws SQLException
         {
             Connection conn = null;
             PreparedStatement ps = null;
-            String query = "UPDATE 'gdbgames'.'cliente' SET città = ?, provincia = ?, cap = ? WHERE email = ?";
+            String query = "UPDATE gdbgames.cliente SET città = ?, provincia = ?, cap = ? WHERE email = ?";
             try{
                 conn = ConnectionPool.getConnection();
                 ps = conn.prepareStatement(query);
-                ps.setString(1, c);
-                ps.setString(2, p);
+                ps.setString(1, città);
+                ps.setString(2, provincia);
                 ps.setInt(3, cap);
-                ps.setString(4, e);
+                ps.setString(4, email);
+                ps.executeUpdate();
+                conn.commit();
                 }finally {
                             try {
                                     if (ps != null)
@@ -181,12 +188,14 @@ public synchronized void modifiStato(String e, String stato) throws SQLException
         {
             Connection c = null;
 	        PreparedStatement ps = null;
-            String query = "UPDATE 'gdbgames'.'cliente' SET stato = ? WHERE email = ?";
+            String query = "UPDATE gdbgames.cliente SET stato = ? WHERE email = ?";
             try{
                 c = ConnectionPool.getConnection();
                 ps = c.prepareStatement(query);
                 ps.setString(1, stato);
                 ps.setString(2, e);
+                ps.executeUpdate();
+                c.commit();
                 }finally {
 			                try {
 				                if (ps != null)

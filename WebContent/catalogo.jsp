@@ -12,7 +12,7 @@ if(copie == null) {
 
 <head>
     <title>GDB Games</title>
-     <link rel="stylesheet" href="css\stile_catalogo.css">
+     <link rel="stylesheet" href="css/stile_catalogo.css">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var currentIndex = 0;
@@ -38,7 +38,7 @@ if(copie == null) {
 </head>
 
 <body>
-
+	
     <%
     	// Here negative login feedback 
         Boolean feedbackLog = (Boolean) session.getAttribute("feedbackLog");
@@ -63,7 +63,7 @@ if(copie == null) {
     <%
     	}
     %>
-
+	<table id="myTable"></table>
     <div class="novita">
         <div class="carousel">
             <img src="foto\ACS.jpg" alt="Collector edition assassin creed shadow">

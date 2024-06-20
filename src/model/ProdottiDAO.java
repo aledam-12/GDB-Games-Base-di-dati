@@ -5,6 +5,38 @@ import java.sql.*;
 
 public class ProdottiDAO implements Prodotti
 {	
+	
+	public synchronized ArrayList <OrdineCopia> cercaProdotti (String titolo, String console) throws SQLException  {
+	String SQL = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco, percIva, prezzo FROM copia WHERE stato = 0 AND titoloVideogioco LIKE ? AND nomeConsole = ? " + " GROUP BY nomeConsole, titoloVideogioco, prezzo, percIva";
+	ArrayList <OrdineCopia> prodotti = new ArrayList<>();
+	Connection conn = null;
+	PreparedStatement ps = null;
+	try  {
+		conn = ConnectionPool.getConnection();
+		ps = conn.prepareStatement(SQL);
+		ps.setString(1, "%"+titolo+"%");
+		ps.setString(2, console);
+		System.out.println(ps);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			CopiaBean temp2 = new CopiaBean();
+			temp2.setNomeConsole(rs.getString("nomeConsole"));
+			temp2.setTitoloVideogioco(rs.getString("titoloVideogioco"));
+			temp2.setPercIva(rs.getFloat("percIva"));
+			temp2.setPrezzo(rs.getFloat("prezzo"));
+			OrdineCopia temp = new OrdineCopia(rs.getInt("quantità"), temp2);
+			prodotti.add(temp);	}
+	}
+	finally {
+		try {
+			if (ps != null)
+				ps.close();
+		} finally {
+			ConnectionPool.rilasciaConnessione(conn);
+		}
+	}
+	return prodotti;
+	}
 	public synchronized CopiaBean leggiOrdineCopia (OrdineCopia ord) throws SQLException {
 		String SQL = "SELECT * FROM copia WHERE titoloVideogioco = ? AND nomeConsole = ? AND prezzo = ? AND stato = 0";
 		CopiaBean copia = new CopiaBean();

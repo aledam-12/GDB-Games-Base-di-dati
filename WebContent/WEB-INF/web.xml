@@ -11,6 +11,14 @@
   
   <!-- Mappatura delle Servlet -->
   	<servlet>
+  		<servlet-name>UserUpdate</servlet-name>
+  		<servlet-class>control.UserUpdate</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>UserUpdate</servlet-name>
+  		<url-pattern>/utenteLoggato/userUpdate</url-pattern>
+  	</servlet-mapping>
+  	<servlet>
   		<servlet-name>AdminDelete</servlet-name>
   		<servlet-class>control.AdminDelete</servlet-class>
   	</servlet>
