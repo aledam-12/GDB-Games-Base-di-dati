@@ -3,6 +3,16 @@ body {
         color: white;
     }
     
+    .error-message, .required {
+    	color: red;
+    	font-size: 1.2em;
+    }
+    fieldset {
+    	width: 40%;
+    }
+    .form-container {
+    	margin-left: 26%;
+    }
     table {
         width: 70%;
         border-collapse: collapse;
@@ -22,7 +32,7 @@ body {
     	border: 1px solid white;
         padding: 10px;
     }
-    button {
+    .botton {
     	border: none;
         margin: 10px;
         padding: 10px 20px;
@@ -31,27 +41,19 @@ body {
         background-color: #800080;
         color: white;
         cursor: pointer;
+        margin-left: -0.5%;
     }
-    button:hover {
+    .botton:hover {
     	background-color: #a64ca6;
   	}
 
-    button a {
+    .botton a {
+    	background-color: none;
         text-decoration: none;
         color: white;
+        
     }
 
     .recalmo-inviato p {
         color: green;
     }
-    .logout {
-	text-align: center;
-	position: absolute;
-	margin-right: 500px;
-    }
-    .mod {
-    	margin-left: 10%;
-    }
-    
-    
-    

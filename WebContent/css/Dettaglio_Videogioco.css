@@ -103,3 +103,10 @@
         			margin: 20% 10% 20% 10%;
         	}
   	}
+  	/* pc */
+  	@media screen and (min-width: 1024px) {
+  		.header .ricerca {
+  			margin-top: 0%;
+  		}
+  	}
+  	

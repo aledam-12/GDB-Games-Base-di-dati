@@ -14,7 +14,7 @@ body {
         position: absolute;
         top: 133px;
         right: 10px;
-        color: white;
+        color: white; 
         padding: 10px;
         border: 3px solid #ccc;
         width: 250px;
@@ -132,7 +132,10 @@ body {
   			top: 247px;
   		}
   		.prodotti-container {
-        	margin-left: 5px;
+        	margin-left: -10px;
+    	}
+    	.scritta {
+    		margin: 30% 0% 30% 0%;
     	}
   }
   /*smartphone*/

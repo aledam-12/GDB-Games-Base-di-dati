@@ -37,8 +37,8 @@
 					<label for="email">Password: <span class="required">*</span></label> <br>
 					<input type="password" name="pwCliente" placeholder="xxxxxx" required> <br>
 			</fieldset>
-				<input type = "submit" value = "invia" class = "button">
-				<input type = "reset" class = "button">
+				<input type = "submit" class = "botton" value = "Invia">
+				<input type = "reset" class = "botton" value = "Cancella">
 			</form>
 			</div>
 			<script src="${pageContext.request.contextPath}/formValidation.js"></script>

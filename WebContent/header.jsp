@@ -12,7 +12,7 @@
 	nomeHeader = (String) session.getAttribute("nomeCliente"); }
 	else nomeHeader = "Accedi";
 	%>
-	<header>
+	<div class="header">
     <div class="sinistra">
     	
         <img src="${pageContext.request.contextPath}/foto/logo5.png" alt="logo" class="logo">
@@ -20,20 +20,19 @@
             <img src="${pageContext.request.contextPath}/foto/home.png" alt="Home" class="home">
         </a>
     </div>
-    <div class="destra">
-    <form action="./Searchbar" method="post" id="Searchbar">
-    	   <select class="console" name="console" id = "Searchbar Console">
+    <form action="./Searchbar" method="post" class= "destra">
+    	   <select class="console" name="console">
        			 <option value="" disabled selected>console</option>
        			 <option value="Play Station 4">PS4</option>
         		 <option value="XBOX One">Xbox</option>
         		 <option value="Nintendo Switch">Switch</option>
         		 <option value="PC">PC</option>
     	   </select>
-    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco" name="search" id="Searchbar Titolo">
-    	<input type="submit" value = "Cerca">
+    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco" name="search">
+    	<button type="submit" class="ricerca">
+    		<img src="${pageContext.request.contextPath}/foto/ricerca.png" alt="ricerca" class="fotoRic">
+		</button>
     	</form>
-        <img src="${pageContext.request.contextPath}/foto/ricerca.png" alt="cerca" class="ricerca">	
-    </div>
      <div class="account">
      		<a href="${pageContext.request.contextPath}/carrello.jsp">
             	<img src="${pageContext.request.contextPath}/foto/carrello.png" alt="carello" class="carrello">
@@ -45,7 +44,7 @@
         	</a>
         
     </div>
-    </header>
+    </div>
     <script src="${pageContext.request.contextPath}/js/Searchbar.js" type="text/javascript"></script>
 </body>
 </html>

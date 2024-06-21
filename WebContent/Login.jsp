@@ -135,8 +135,8 @@ function changeForm(str) {
 				  <label for="password">Password: <span class="required">*</span></label> <br> 
 				  <input type="password" name="password" id="password" required> <br>
 			  </fieldset>
-			<input type="submit" class="button" value = "Accesso">
-			<button onclick='changeForm("Sign Up")'> Non hai un account?  </button> 
+				<input type="submit" class = "botton" value = "Accesso">
+				<button class = "botton" onclick='changeForm("Sign Up")'> Non hai un account?  </button> 
 		</form>
 	</div>	
 	<div class= "reg">

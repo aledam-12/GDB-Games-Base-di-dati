@@ -33,10 +33,15 @@
      %>
 		
 		<h2> Benvenuto <%=cliente.getNome()%>!</h2>
-		<div class="logout">
-				<button> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
-		</div>
-		<button class= "mod" onclick = "ModificaUtente (true)" >Modifica i tuoi dati</button>
+		<button class = "botton"> <a href="${pageContext.request.contextPath}/utenteLoggato/Logout"> Logout </a></button>
+		<%
+    		if (isAdmin) {
+		%>
+        <button class = "botton"><a href="${pageContext.request.contextPath}\admin\admin.jsp">Funzionalità amministratore</a></button>
+		<%
+    		}
+		%>
+		<button class= "botton" onclick = "ModificaUtente (true)" >Modifica i tuoi dati</button>
 			<div class="form-container" id ="Modifica" style = "display:none">
 				<form action = "./userUpdate" method = "post">
 				<div class="error-message">I campi con l'asterisco (*) sono obbligatori.</div>
@@ -53,23 +58,14 @@
 							<label for="provincia">Provincia: <span class="required">*</span></label><br>
 							<input type = "text" name="provincia" value = "<%=cliente.getProvincia() %>"><br>
 					</fieldset>
-				<input type = "submit" value = "invia" class = "button">
-				<input type = "reset" class = "button">
+				<input type = "submit" class = "botton" value = "invia">
+				<input type = "reset" class = "botton" value = "Cancella">
+				<button class = "botton" onclick = "ModificaUtente (false)">Annulla</button>
 				</form>
-				<button class="mod" onclick = "ModificaUtente (false)">Annulla</button>
 			</div>
 			<script src="${pageContext.request.contextPath}/formValidation.js"></script>
 			<script src="${pageContext.request.contextPath}/js/user.js"></script>
 			<div class="form-not-valid"> </div>
-		<%
-    		if (isAdmin) {
-		%>
-    	<div class="admin-section">
-        <button><a href="${pageContext.request.contextPath}\admin\admin.jsp">Funzionalità amministratore</a></button>
-    	</div>
-		<%
-    		}
-		%>
 		
 		
 		<h3>I tuoi ordini: </h3>

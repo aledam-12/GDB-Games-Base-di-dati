@@ -30,7 +30,7 @@ input[type="number"] {
 	margin-bottom: 3%;
 }
 
-.button, button {
+ .botton {
     background-color: #800080; 
     color: white; 
     border: none;
@@ -72,9 +72,8 @@ input[type="number"] {
 
   /* pc */
   @media screen and (min-width: 1025px) {
-    .h input[type = "text"] {
-    	height: 25px;
-    	margin-left: -4px;
+    
+    .header input[type="submit"] {
     	border-radius: none;
     }
     .f {
@@ -101,18 +100,9 @@ input[type="number"] {
   
   /* tablet */
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .h input[type = "text"] {
-    	height: 25px;
-    	margin-left: -4px;
-    	border-radius: none;
-    }
+    
    
-    /*.form-container {
-      width: 80%;
-      height: auto;
-      padding: 15px;
-      flex: 1;
-    }*/
+    
   #loginForm {
   	margin: 20% 20% 15% 20%;
   }  

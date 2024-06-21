@@ -1,4 +1,4 @@
-		header {
+		.header {
             margin: 0;
             padding: 0;
             display: flex;
@@ -32,18 +32,23 @@
         	color: white;
         	text-align: center;
         	background-color: #800080;
-        	margin-riight: -50px;
-        }
+        	}
         .search-bar {
             width: 245px;
             height: 29.8px;
-    		margin-right: -2px;
-    		margin-left: -1px;
+    		margin-left: -15px;
+    		margin-right: -5px;
         }
-        .ricerca {
-        	width: 41px;
-        	height: auto;
-        	margin-left: px;
+        .destra .ricerca {
+        	width: 60px;
+        	height: 35px;
+        	border: 1.2px solid white;
+        	color: white;
+        	text-align: center;
+        	background-color: #800080;
+        }
+        .fotoRic {
+        	width: 78%;
         }
         .carrello {
             max-width: 50px; /* dimensione moderata, puoi regolare secondo le tue necessità */
@@ -56,7 +61,6 @@
 			flex-grow: 1;
             align-items: center;
             justify-content: flex-end;
-            
         }
         .omino {
             max-width: 40px; /* dimensione moderata, puoi regolare secondo le tue necessità */
@@ -90,7 +94,7 @@
 		
 		/* Tablet*/
 	@media screen and (min-width: 768px) and (max-width: 1024px) {
-    header {
+    .header {
     	height: 16vh;
     }
     .logo {
@@ -130,7 +134,7 @@
 
 /* Smartphone*/
 @media (max-width: 600px) {
-    header {
+    .header {
         height: 16vh;
         padding: 10px;
     }
