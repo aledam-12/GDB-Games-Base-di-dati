@@ -90,8 +90,7 @@
   		margin-top: -7%;
   	}
   	.head .ricerca {
-  		
-  		margin-top: -7.8%;
+  		margin-top: 0%;
   	}
   	.head .omino {
   		margin-top: -5%;
@@ -102,6 +101,7 @@
   			.container {
         			margin: 20% 10% 20% 10%;
         	}
+        
   	}
   	/* pc */
   	@media screen and (min-width: 1024px) {

@@ -100,9 +100,6 @@ input[type="number"] {
   
   /* tablet */
   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    
-   
-    
   #loginForm {
   	margin: 20% 20% 15% 20%;
   }  
@@ -112,5 +109,24 @@ input[type="number"] {
     .button, button {
       font-size: 17px;
       padding: 10px 20px;
+    }
+    .fotoRic {
+    	margin-top: -8px;
+    	margin-left: -10px;
+    	width: 2em;
+    }
+    .search-bar {
+        width: 180px;
+    }
+   .destra {
+   		margin-right: -8%;
+   }
+    .f .contatto {
+    	margin-right: 7%;
+    }
+     .f {
+    	width: 100%;
+    	position: absolute;
+    	margin-top: 45%;
     }
   }

@@ -48,6 +48,5 @@
 				<h2>Visualizzazione clienti:</h2>
 		<%@ include file = "visualizza clienti.jsp" %>
 		<%@ include file = "visualizza_reclami.jsp" %>
-		<%@ include file="../footer.jsp"%>
 	</body>	
 </html>

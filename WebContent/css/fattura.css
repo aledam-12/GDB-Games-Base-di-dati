@@ -18,7 +18,7 @@ body {
     }
     .dettagli-prodotti {
         width: 45%;
-         border-collapse: collapse; 
+        border-collapse: collapse; 
         text-align: center;
         margin-top: 2%;
         margin-bottom: 2%;
@@ -31,3 +31,11 @@ body {
         border: 2px solid white;
         padding: 10px;
     }
+    
+    /* tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+		.dettagli-prodotti {
+			width: 70%;
+		}
+	}
+    

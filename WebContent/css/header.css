@@ -47,9 +47,6 @@
         	text-align: center;
         	background-color: #800080;
         }
-        .fotoRic {
-        	width: 78%;
-        }
         .carrello {
             max-width: 50px; /* dimensione moderata, puoi regolare secondo le tue necessità */
             height: auto;
@@ -96,6 +93,9 @@
 	@media screen and (min-width: 768px) and (max-width: 1024px) {
     .header {
     	height: 16vh;
+    }
+    .fotoRic {
+    	width: 80%;
     }
     .logo {
         max-width: 200px;
@@ -189,3 +189,9 @@
         margin-top: 27px;
     }
 }
+/* pc*/
+@media (min-width: 1024px) {
+	.fotoRic {
+    	width: 78%;
+    }	
+	}

@@ -130,3 +130,32 @@ input[type="submit"]:hover {
     	width: 90%;
     }
   }
+  /* tablet */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .fotoRic {
+    	margin-left: -10px;
+    }
+    .search-bar {
+    	max-width: 175px;
+    }
+    .ricerca {
+   		margin-right: -11%;
+   }
+   
+   #checkoutTable {
+   		width: 70%;
+   }
+    .fine .contatto {
+    	margin-left: -5%;
+    	margin-right: 9%;
+    }
+    .fine .crediti {
+    	margin-right: -3%;
+    	
+    }
+    .fine {
+    	width: 100%;
+    	position: absolute;
+    	margin-top: 45%;
+    } 
+	}
