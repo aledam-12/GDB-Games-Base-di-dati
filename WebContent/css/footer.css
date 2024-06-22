@@ -66,48 +66,6 @@ footer ul li {
     margin-top: -17px;
 }
 
-/*smartphone */
-@media screen and (max-width: 600px) {
-    footer {
-        width: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-    }
-    .contatto, .subscribe, .crediti {
-        flex: 1;
-        min-width: 200px;
-    }
-    .contatto ul {
-        margin-top: 10px;
-    }
-    .email {
-        margin-top: 5px;
-        margin-left: 20px;
-    }
-    .subscribe {
-        text-align: center;
-    }
-    .subscribe img {
-        vertical-align: middle;
-        width: 48px;
-        height: 48px;
-    }
-    .subscribe a {
-        color: white;
-        text-decoration: none;
-    }
-    .crediti p, .crediti h3 {
-        margin: 5px 0;
-        text-align: right;
-    }
-    .crediti h3 {
-        margin-top: -17px;
-    }
-}
-
 /* Stili per tablet */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     footer{

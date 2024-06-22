@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/FinalizzaAcquisto.css">
 </head>
 <body>
-    <%@ include file="../header.jsp"%>
+    <div class= "start"><%@ include file="../header.jsp"%></div>
     <%
         float prezzoTot = (float) carrello.getPrezzoTotale();
         if (carrello == null || carrello.viewCart().size() == 0) {

@@ -92,19 +92,50 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #a64ca6;
 }
+
 /* smartphone */
   @media screen and (max-width: 600px) {
-  	 body {
-        overflow-y: auto;
+  	.header .fotoRic {
+    	width: 80%;
     }
-    header {
-        position: relative;
-        left: 0;
-        right: 0;
+    .start .header {
+    	margin-bottom: 10%;
+    	display: grid;
+    }
+    .header .logo {
+    	margin-left: 15%;
+    }
+    .header .home {
+    	margin-left: 10px;
+    }
+    .header .sinistra {
+    	display: contents;
+    }
+    .header .account {
+    	margin-top: -43%;
+    	margin-left: 65%;
+    }
+    .header .destra {
+    	margin-top: 10px;
+    	margin-left: 10px;
     }
     .fine {
-        min-width: 100%;
-        position: absolute;
+    	width: 85%;
+    	margin-top: 10%;
+    	text-align: center;
+    }
+    .fine .contatto {
+    	margin-bottom: 5%;
+    }
+    .fine .crediti b {
+    	margin-right: 22%;
+    	text-align: center;
+    }
+    .fine .crediti p {
+    	text-align: center;
+    }
+    .fine .crediti {
+    	margin-top: 10%;
     }
     fieldset {
         margin-left: 0;

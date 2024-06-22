@@ -50,25 +50,51 @@ input[type="number"] {
   
   /* smartphone */
   @media screen and (max-width: 600px) {
+    .header .fotoRic {
+    	width: 80%;
+    }
+    .header {
+    	margin-bottom: 10%;
+    	display: grid;
+    }
+    .header .logo {
+    	margin-left: 15%;
+    }
+    .header .home {
+    	margin-left: 10px;
+    }
+    .header .sinistra {
+    	display: contents;
+    }
+    .header .account {
+    	margin-top: -35%;
+    	margin-left: 65%;
+    }
+    .header .destra {
+    	margin-top: 10px;
+    	margin-left: 10px;
+    }
     .f {
-    	display: flex;
-    	align-items: center;
-    	padding:5px;
+    	width: 85%;
+    	margin-top: 10%;
     	text-align: center;
     }
-    .f img {
-    	margin-bottom: 35px;
+    .f .contatto {
+    	margin-bottom: 5%;
     }
-    .form-container {
-      width: 100%;
-      padding: 0;
+    .f .crediti b {
+    	margin-right: 22%;
+    	text-align: center;
     }
-      
-    .button, button {
-      width: 100%;
-      padding: 12px 0;
+    .f .crediti p {
+    	text-align: center;
     }
+    .f .crediti {
+    	margin-top: 10%;
+    }
+    
   }
+  
 
   /* pc */
   @media screen and (min-width: 1025px) {

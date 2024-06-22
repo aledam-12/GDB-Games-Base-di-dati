@@ -132,63 +132,7 @@
    }
 }
 
-/* Smartphone*/
-@media (max-width: 600px) {
-    .header {
-        height: 16vh;
-        padding: 10px;
-    }
 
-    .sinistra {
-        flex-direction: column;
-        margin: 10px 0;
-    }
-
-    .logo {
-        max-width: 150px;
-        margin-top: -20px;
-    }
-
-    .home {
-        max-width: 25px;
-        margin-left: -70px;
-    }
-    .destra {
-    	margin-top: 27.3px;
-    	margin-left: -105px;
-    }
-
-    .search-bar {
-        width: 180px;
-        height: 10px;
-    }
-
-    .console {
-        width: 80px;
-        height: 20px;
-    }
-    .ricerca {
-    	max-width: 23px;
-    	margin-left: 0;
-    }
-    .carrello {
-    	max-width: 27px;
-    }
-    .omino {
-    	max-width: 22px;
-    }
-
-    .name {
-        font-size: 14px;
-        margin-right: 2px;
-        margin-left: 1px;
-    }
-
-    .account {
-        margin-left: 5px;
-        margin-top: 27px;
-    }
-}
 /* pc*/
 @media (min-width: 1024px) {
 	.fotoRic {
