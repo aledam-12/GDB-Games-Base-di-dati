@@ -1,9 +1,10 @@
 package control;
 import java.io.IOException;
 
-
+import model.OrdineCopia;
 import model.ProdottiDAO;
 import model.VideogiocoDAO;
+import model.beans.CopiaBean;
 
 import javax.servlet.RequestDispatcher;
 	import javax.servlet.ServletException;
@@ -22,10 +23,15 @@ import javax.servlet.http.HttpServlet;
 	                    {
 					        if (action.equalsIgnoreCase("read")) 
 	                            {	VideogiocoDAO vdao = new VideogiocoDAO();
-					        		int code = Integer.parseInt(request.getParameter("id"));
 	                            	String titolo = request.getParameter("titolo");
+	                            	String console = request.getParameter("console");
+	                            	float prezzo = Float.parseFloat(request.getParameter("prezzo"));
+	                            	CopiaBean temp = new CopiaBean();
+	                            	temp.setTitoloVideogioco(titolo);
+	                            	temp.setPrezzo(prezzo);
+	                            	temp.setNomeConsole(console);
 	                            	request.removeAttribute("copia");
-	                            	request.setAttribute("copia",pdao.leggiCopia(code));
+	                            	request.setAttribute("copia", new OrdineCopia(temp));
 	                            	request.removeAttribute("videogioco");
 	                            	request.setAttribute("videogioco",vdao.leggiVideogioco(titolo));
 						            RequestDispatcher disp = request.getServletContext().getRequestDispatcher("/DettaglioVideogioco.jsp");
@@ -39,7 +45,7 @@ import javax.servlet.http.HttpServlet;
 			    }
 			try {
 				request.removeAttribute("copieVideogiochi");
-				request.setAttribute("copieVideogiochi",pdao.leggiTutteCopie(""));
+				request.setAttribute("copieVideogiochi",pdao.getProdotti());
 			}
 		    catch (Exception e) {
 		    	e.printStackTrace();

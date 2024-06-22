@@ -1,9 +1,6 @@
-package control;
+package model;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import model.OrdineCopia;
-import model.ProdottiDAO;
 
 public class Carrello {
 ProdottiDAO pdao;
@@ -29,4 +26,11 @@ private ArrayList <OrdineCopia> prodotti;
 	public int getTotaleQuantità() {
 		return prodotti.stream().mapToInt(OrdineCopia::getQuantità).sum();
 	}
+	public String toString () {
+		String temp = "Carrello: "; 
+		for (OrdineCopia prodotto : prodotti) {
+			temp += prodotto.toString()+"\n";		}
+	return temp;
+	}
+	
 } 

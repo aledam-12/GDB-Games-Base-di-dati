@@ -1,28 +1,29 @@
 package control;
 
 import model.ReclamoDAO;
+import model.beans.ClienteBean;
 import model.beans.ReclamoBean;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/utenteLoggato/reclamo")
+
 public class Reclamo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-		String utenteId = request.getParameter("chiaveCliente");
+		
+		
+		ClienteBean cliente = (ClienteBean) request.getSession(false).getAttribute("cliente");
 		String titolo = request.getParameter("titolo");
 		String descrizione = request.getParameter("descrizione");
 		ReclamoDAO ReclamoDAO = new ReclamoDAO();
 		ReclamoBean reclamo = new ReclamoBean();
-		reclamo.setEmailCliente(utenteId);
+		reclamo.setEmailCliente(cliente.getEmail());
 		reclamo.settitolo(titolo);
 		reclamo.setcontenuto(descrizione);
 		try {

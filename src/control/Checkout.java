@@ -2,6 +2,7 @@ package control;
 import model.OrdineCopia;
 
 import model.AcquistoDAO;
+import model.Carrello;
 import model.ProdottiDAO;
 import model.beans.AcquistoBean;
 import model.beans.ClienteBean;

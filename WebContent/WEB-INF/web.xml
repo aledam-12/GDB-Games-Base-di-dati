@@ -11,6 +11,14 @@
   
   <!-- Mappatura delle Servlet -->
   	<servlet>
+  		<servlet-name>Invio Reclamo</servlet-name>
+  		<servlet-class>control.Reclamo</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>Invio Reclamo</servlet-name>
+  		<url-pattern>/utenteLoggato/reclamo</url-pattern>
+  	</servlet-mapping>
+  	<servlet>
   		<servlet-name>UserUpdate</servlet-name>
   		<servlet-class>control.UserUpdate</servlet-class>
   	</servlet>

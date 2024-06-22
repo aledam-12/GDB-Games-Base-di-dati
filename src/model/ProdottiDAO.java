@@ -177,8 +177,8 @@ public class ProdottiDAO implements Prodotti
 	public synchronized int getQuantità (CopiaBean copia) throws SQLException
         {
 		    String sql = "SELECT count(*) as quantità, nomeConsole, titoloVideogioco, prezzo FROM copia WHERE stato = 0 "
-				    + "AND titoloVideogioco = ?"
-			    	+ "AND nomeConsole = ?"
+				    + "AND titoloVideogioco = ? "
+			    	+ "AND nomeConsole = ? "
 				    + "AND prezzo = ? "
 			    	+ "GROUP BY nomeConsole, titoloVideogioco, prezzo";
 		    Connection conn = null;

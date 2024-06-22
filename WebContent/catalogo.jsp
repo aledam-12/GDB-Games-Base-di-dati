@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
-<%@ page import="java.util.ArrayList,model.beans.CopiaBean" %>
+<%@ page import="java.util.ArrayList,model.OrdineCopia" %>
 <%
-	ArrayList <CopiaBean> copie = (ArrayList<CopiaBean>)request.getAttribute("copieVideogiochi");    
+	ArrayList <OrdineCopia> copie = (ArrayList<OrdineCopia>)request.getAttribute("copieVideogiochi");    
 if(copie == null) {
     response.sendRedirect("./controlloCatalogo");    
     return;
@@ -63,7 +63,7 @@ if(copie == null) {
     <%
     	}
     %>
-	<table id="myTable"></table>
+    <table id = "SearchResult"></table>
     <div class="novita">
         <div class="carousel">
             <img src="foto\ACS.jpg" alt="Collector edition assassin creed shadow">
@@ -78,16 +78,17 @@ if(copie == null) {
     <div class="griglia">
         <%
         	if(copie != null && copie.size() != 0) {
-                for (CopiaBean copia : copie) { 
+                for (OrdineCopia copia : copie) { 
                   if ("PC".equals(copia.getNomeConsole())) {
         %>
         <div class="prodotto">
-            <a href="controlloCatalogo?action=read&id=<%=copia.getCodiceCopia()%>&titolo=<%=copia.getTitoloVideogioco()%>" target="_blank">
+            <a href="controlloCatalogo?action=read&titolo=<%=copia.getTitoloVideogioco()%>&console=<%=copia.getNomeConsole()%>&prezzo=<%=copia.getPrezzo()%>" target="_blank">
                 <img src="./getFoto?titolo=<%=copia.getTitoloVideogioco()%>" alt="Immagine del videogioco non trovata">
             </a>
             <h2><%= copia.getTitoloVideogioco() %></h2>
-            <p><h4> <b><%=copia.getPrezzo()%> &euro;</b></h4></p>
-            <p>Console: <b><%=copia.getNomeConsole() %></b></p>
+            <h4> <b><%=copia.getPrezzo()%> &euro;</b></h4>
+            <p>Console: <b><%=copia.getNomeConsole() %></b></p> <br>
+            <p>Quantit&agrave;: <b><%=copia.getQuantità()%></b> </p> 
         </div>
         <% } } }%>
     </div>

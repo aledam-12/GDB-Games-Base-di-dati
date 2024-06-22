@@ -1,4 +1,4 @@
-<%@  page import = "model.beans.CopiaBean,model.beans.VideogiocoBean" %>
+<%@  page import = "model.OrdineCopia,model.beans.VideogiocoBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 		<%@include file="header.jsp" %>
     </div>
     <%
-    	CopiaBean copia = (CopiaBean) request.getAttribute("copia");
+    	OrdineCopia copia = (OrdineCopia) request.getAttribute("copia");
     %>
     <%
     	VideogiocoBean videogioco = (VideogiocoBean) request.getAttribute("videogioco");
@@ -32,7 +32,7 @@
                 </div>
                 <div class = "mprod">
                 <p> <%=copia.getPrezzo()%> &euro;</p>
-                <button class="button"><a href="controlloCarrello?action=add&id=<%=copia.getCodiceCopia()%>"> Aggiungi al carrello</a></button>
+                <button class="button"><a href="controlloCarrello?action=add&titolo=<%=copia.getTitoloVideogioco()%>&prezzo=<%=copia.getPrezzo()%>&console=<%=copia.getNomeConsole()%>"> Aggiungi al carrello</a></button>
             	</div>
             </div>
         </div>

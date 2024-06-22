@@ -1,4 +1,4 @@
-		.header {
+.header {
             margin: 0;
             padding: 0;
             display: flex;
@@ -8,12 +8,12 @@
             background: radial-gradient(circle, #4B0082, black 70%);
         }
         .logo {
-            max-width: 300px; /* dimensione moderata, puoi regolare secondo le tue necessit√† */
+            max-width: 300px; /* dimensione moderata, puoi regolare secondo le tue necessit‡ */
             height: auto;
             margin-right: 0;
         }
         .home {
-            max-width: 40px; /* dimensione moderata, puoi regolare secondo le tue necessit√† */
+            max-width: 40px; /* dimensione moderata, puoi regolare secondo le tue necessit‡ */
             height: auto;
             transition: filter 0.4s ease;
         }
@@ -48,7 +48,7 @@
         	background-color: #800080;
         }
         .carrello {
-            max-width: 50px; /* dimensione moderata, puoi regolare secondo le tue necessit√† */
+            max-width: 50px; /* dimensione moderata, puoi regolare secondo le tue necessit‡ */
             height: auto;
             margin-right: 0px;
             filter: invert(50%);
@@ -60,7 +60,7 @@
             justify-content: flex-end;
         }
         .omino {
-            max-width: 40px; /* dimensione moderata, puoi regolare secondo le tue necessit√† */
+            max-width: 40px; /* dimensione moderata, puoi regolare secondo le tue necessit‡ */
             height: auto; 
         }
          .account {

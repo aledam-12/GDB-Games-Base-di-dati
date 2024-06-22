@@ -18,7 +18,7 @@ formConsole.addEventListener('change', function (event) {
 
 function rimuoviRighe() {
     // Rimuovere tutte le righe esistenti nella tabella
-    let tabella = document.getElementById("myTable");
+    let tabella = document.getElementById("SearchResult");
 	while (tabella.rows.length >= 1) {
 		console.log("cancello riga" + tabella.rows.length);
         tabella.deleteRow(0);
@@ -30,7 +30,7 @@ xhr.onreadystatechange = function() {
     var response = JSON.parse(xhr.responseText);
     console.log("Response: "+response);
 
-    var table = document.getElementById("myTable");
+    var table = document.getElementById("SearchResult");
     table.style.color = "white";
     
     rimuoviRighe();

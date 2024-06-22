@@ -41,12 +41,9 @@ public void setQuantità (int q) {
     	if (b==null) return false;
     	if (b.getClass() != this.getClass()) return false;
     	OrdineCopia altraCopia = (OrdineCopia) b;
-    	if (this.getCodiceCopia() == altraCopia.getCodiceCopia()) return true;
-    	else {
     		if (this.getNomeConsole().equals(altraCopia.getNomeConsole())&&
-    				this.getTitoloVideogioco().equals(altraCopia.getTitoloVideogioco()))
+    				this.getTitoloVideogioco().equals(altraCopia.getTitoloVideogioco()) && this.getPrezzo() == altraCopia.getPrezzo())
     		return true;
     		else return false;
     	}
     }
-}

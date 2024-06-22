@@ -21,14 +21,14 @@
         </a>
     </div>
     <form action="./Searchbar" method="post" class= "destra">
-    	   <select class="console" name="console">
+    	   <select class="console" name="console" id = "Searchbar Console">
        			 <option value="" disabled selected>console</option>
        			 <option value="Play Station 4">PS4</option>
         		 <option value="XBOX One">Xbox</option>
         		 <option value="Nintendo Switch">Switch</option>
         		 <option value="PC">PC</option>
     	   </select>
-    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco" name="search">
+    	<input type="text" class="search-bar" placeholder="Cerca il tuo videogioco" name="search" id = "Searchbar Titolo">
     	<button type="submit" class="ricerca">
     		<img src="${pageContext.request.contextPath}/foto/ricerca.png" alt="ricerca" class="fotoRic">
 		</button>

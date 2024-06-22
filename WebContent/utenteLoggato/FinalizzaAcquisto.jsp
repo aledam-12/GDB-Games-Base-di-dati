@@ -1,6 +1,6 @@
 <%@ page import="control.ControlloCarrello"%>
 <%@ page import="java.util.Collection"%>
-<%@ page import="control.Carrello"%>
+<%@ page import="model.Carrello"%>
 <%@ page import="model.OrdineCopia" %>
 <%@ page import="model.beans.AcquistoBean"%>
 <%@ page import="model.beans.ClienteBean"%>
