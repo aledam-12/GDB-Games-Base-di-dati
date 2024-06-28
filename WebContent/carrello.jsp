@@ -60,7 +60,7 @@
 
     %>
     <div class="prodotto">
-        <a href="./controlloCatalogo?action=read&id=<%= copia.getCodiceCopia() %>&titolo=<%=copia.getTitoloVideogioco()%>" target="_blank">
+        <a href="./controlloCatalogo?titolo=<%=copia.getTitoloVideogioco()%>&console=<%=copia.getNomeConsole()%>&prezzo=<%=copia.getPrezzo()%>" target="_blank">
             <img src="./getFoto?titolo=<%=copia.getTitoloVideogioco()%>" id="immagine<%=i%>" alt="Immagine del videogioco non trovata">
         </a>
         <div class="el" id="el<%=i%>">

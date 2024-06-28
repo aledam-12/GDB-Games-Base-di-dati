@@ -15,7 +15,6 @@ import org.json.*;
 public class ControlloCarrello extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-		ProdottiDAO pdao = new ProdottiDAO();
 		Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 		if (cart == null) {
 			cart = new Carrello();
@@ -55,6 +54,7 @@ public class ControlloCarrello extends HttpServlet{
 
     		response.setContentType("application/json");
 	        response.setCharacterEncoding("UTF-8");
+	        System.out.println(cart);
 	        PrintWriter out = response.getWriter();
 	        out.print(jArray.toString());
 	        out.flush();

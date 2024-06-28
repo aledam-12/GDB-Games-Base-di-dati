@@ -1,10 +1,18 @@
 package model;
+import model.beans.AcquistoBean;
 import model.beans.ClienteBean;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class ClienteDAO implements Cliente
-{	public synchronized ArrayList <ClienteBean> leggiTutti () throws SQLException {
+{	public synchronized boolean controlloFattura (ClienteBean cliente, int id) throws SQLException{
+	AcquistoDAO adao = new AcquistoDAO();
+	AcquistoBean acquisto = adao.leggiDaId(id);
+	if (acquisto.getemailcliente().equals(cliente.getEmail())) return true;
+	else return false;
+}
+	
+	public synchronized ArrayList <ClienteBean> leggiTutti () throws SQLException {
 	ArrayList <ClienteBean> clienti = new ArrayList<>();
 	String SQL = "SELECT * FROM cliente";
 	Connection conn = null;

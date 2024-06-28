@@ -1,68 +1,42 @@
 package control;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-import java.util.ArrayList;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 import model.OrdineCopia;
 import model.ProdottiDAO;
 
-@WebServlet("/Searchbar")
 public class Searchbar extends HttpServlet {
-    
 	private static final long serialVersionUID = 1L;
+       
+    public Searchbar() {
+        super();
+    }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String search = req.getParameter("search");
-        String console = req.getParameter("console");
-        System.out.println("console ="+console);
-        System.out.println("search ="+search);
-        ProdottiDAO pdao = new ProdottiDAO();
-        ArrayList<OrdineCopia> prodotti = new ArrayList<>();
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProdottiDAO pdao = new ProdottiDAO();
+		String console = request.getParameter("console");
+		String search = request.getParameter("search");
+		ArrayList<OrdineCopia> prodotti;
 		try {
-			prodotti = pdao.cercaProdotti(search, console);
-			req.setAttribute("prodottiCercati", prodotti);
-			JSONArray jArray = new JSONArray();
-			if (prodotti.size() == 0) {
-				JSONObject jsonObject = new JSONObject();
-			    jsonObject.put("titolo", "Nessun risultato");
-			    jsonObject.put("prezzo", "-");
-			    jsonObject.put("console", "-");
-			    jsonObject.put("quantita", "-");
-			    jArray.put(jsonObject);
-			}
-			else {for (OrdineCopia prod : prodotti) {
-			    JSONObject jsonObject = new JSONObject();
-			    jsonObject.put("titolo", prod.getTitoloVideogioco());
-			    jsonObject.put("prezzo", prod.getPrezzo());
-			    jsonObject.put("console", prod.getNomeConsole());
-			    jsonObject.put("quantita", Integer.toString(prod.getQuantità()));
-			    jArray.put(jsonObject);
-			}}
-	        resp.setContentType("application/json");
-	        resp.setCharacterEncoding("UTF-8");
-
-	        PrintWriter out = resp.getWriter();
-	        out.print(jArray.toString());
-	        out.flush();
+			if (console == null && search == null) prodotti = pdao.cercaProdotti("", "PC");
+			else prodotti = pdao.cercaProdotti(search, console);
+			request.setAttribute("prodotti", prodotti);
+			RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/catalogo.jsp");
+			rd.forward(request, response);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-        	
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       doPost(req,resp);
-    }
+	}
 }

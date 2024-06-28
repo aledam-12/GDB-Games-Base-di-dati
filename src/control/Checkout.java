@@ -32,22 +32,20 @@ public class Checkout extends HttpServlet {
         acquistoBean.setnCarta(Integer.parseInt(req.getParameter("numCarta")));
         acquistoBean.setCap(Integer.parseInt(req.getParameter("cap-spedizione")));
         acquistoBean.setVia(req.getParameter("via-spedizione"));
-        AcquistoDAO ordineDAO = new AcquistoDAO();
+        AcquistoDAO adao = new AcquistoDAO();
         ProdottiDAO pdao = new ProdottiDAO();
         try {
-        	ordineDAO.inserisciOrdine(acquistoBean);
+        	adao.inserisciOrdine(acquistoBean);
         	req.getSession().removeAttribute("carrello");
-        	RequestDispatcher rd = req.getServletContext().getRequestDispatcher("/utenteLoggato/account.jsp");
-            rd.forward(req, resp);
+            System.out.println(carrelloCheckout);
             for (OrdineCopia o : carrelloCheckout.viewCart()) {
-            	int temp = o.getQuantità();
-            	for (int i = 0; i < temp; i++) {
-            		pdao.UpdateCopia(o, acquistoBean);
-            }
+            		pdao.UpdateCopia(o, acquistoBean);	//si ricava l'ID di una singola copia e poi si può fare l'aggiornamento
           }
         }
         catch (Exception e) {e.printStackTrace();}
-    }
+    	RequestDispatcher rd = req.getServletContext().getRequestDispatcher("/utenteLoggato/account.jsp");
+        rd.forward(req, resp);
+	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req,resp);

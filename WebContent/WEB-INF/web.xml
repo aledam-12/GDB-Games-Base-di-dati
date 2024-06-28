@@ -11,6 +11,30 @@
   
   <!-- Mappatura delle Servlet -->
   	<servlet>
+  		<servlet-name>Ricerca</servlet-name>
+  		<servlet-class>control.Searchbar</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>Ricerca</servlet-name>
+  		<url-pattern>/searchbar</url-pattern>
+  	</servlet-mapping>
+  	 <servlet>
+  		<servlet-name>RicercaJSON</servlet-name>
+  		<servlet-class>control.SearchbarJSON</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>RicercaJSON</servlet-name>
+  		<url-pattern>/SearchbarJSON</url-pattern>
+  	</servlet-mapping>
+  	<servlet>
+  		<servlet-name>Crea Fattura</servlet-name>
+  		<servlet-class>control.CreaFattura</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>Crea Fattura</servlet-name>
+  		<url-pattern>/creaFattura</url-pattern>
+  	</servlet-mapping>
+  	<servlet>
   		<servlet-name>Invio Reclamo</servlet-name>
   		<servlet-class>control.Reclamo</servlet-class>
   	</servlet>
@@ -105,6 +129,10 @@
     <filter-name>FiltroAutenticazione</filter-name>
     <url-pattern>/utenteLoggato/*</url-pattern>
  </filter-mapping>
+ <filter-mapping>
+    <filter-name>FiltroAutenticazione</filter-name>
+    <url-pattern>/pdf/*</url-pattern>
+  </filter-mapping>
  
   <!-- Pagine di errore -->
   <error-page>

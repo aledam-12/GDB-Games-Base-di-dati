@@ -20,9 +20,9 @@
             <img src="${pageContext.request.contextPath}/foto/home.png" alt="Home" class="home">
         </a>
     </div>
-    <form action="./Searchbar" method="post" class= "destra">
+    <form action="./searchbar" method="post" class= "destra">
     	   <select class="console" name="console" id = "Searchbar Console">
-       			 <option value="" disabled selected>console</option>
+       			 <option value="">Tutte</option>
        			 <option value="Play Station 4">PS4</option>
         		 <option value="XBOX One">Xbox</option>
         		 <option value="Nintendo Switch">Switch</option>
@@ -46,5 +46,6 @@
     </div>
     </div>
     <script src="${pageContext.request.contextPath}/js/Searchbar.js" type="text/javascript"></script>
+    <div class = "Risultati"><table id = "SearchResult"></table></div>
 </body>
 </html>

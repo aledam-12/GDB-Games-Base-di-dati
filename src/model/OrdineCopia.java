@@ -46,4 +46,7 @@ public void setQuantità (int q) {
     		return true;
     		else return false;
     	}
-    }
+	@Override public String toString() {
+		return super.toString() + "quantità: "+ this.quantità;
+	}
+}

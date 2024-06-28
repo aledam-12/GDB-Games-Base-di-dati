@@ -152,8 +152,8 @@ import java.util.List;
                 preparedStatement.setFloat(2, acquistoBean.getPrezzoTotale());
                 preparedStatement.setDate(3, Date.valueOf(LocalDate.now()));
                 preparedStatement.setInt(4, acquistoBean.getCap());
-                preparedStatement.setString(5, acquistoBean.getVia()); //non li ottiene
-                preparedStatement.setString(6, acquistoBean.getCitta()); 	//non li ottiene
+                preparedStatement.setString(5, acquistoBean.getVia()); 
+                preparedStatement.setString(6, acquistoBean.getCitta()); 	
                 preparedStatement.setInt(7, acquistoBean.getnCarta());
                 preparedStatement.setInt(8, acquistoBean.getnFattura());
                 preparedStatement.executeUpdate();
@@ -161,7 +161,7 @@ import java.util.List;
                 ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
                 if (generatedKeys.next()) {
                 	int idInserito = generatedKeys.getInt(1);
-                	acquistoBean.setnFattura(idInserito);
+                	acquistoBean.setnFattura(idInserito);	//si sfrutta passaggio per riferimento per avere l'ID della fattura generata tramite Auto-Increment
             }	
            
            }
